@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} {{ news_entry.title }} | {{ news_entry.pub_date }} {% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>{{ news_entry.title }}</h2>
+      <p class="text-muted">{{ news_entry.pub_date|timesince }}</p>
+      <p>{{ news_entry.text|safe }}</p>
+    </div>
+  </div>
+</div>
+{% endblock content %}

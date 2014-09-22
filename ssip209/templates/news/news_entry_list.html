@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}News{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center">News</h2>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+          <div class="list-group">
+          {% for news_entry in news_entry_list %}
+                  <a href="{% url 'news:newsentry-detail' slug=news_entry.slug %}" class="list-group-item">
+                      <h3>{{ news_entry.title }}</h3> 
+                      <p>Published on {{ news_entry.pub_date|date }}, <span class="text-muted">{{ news_entry.pub_date|timesince }} ago.</span></p>
+                      <p>{{ news_entry.text|safe }}</p>
+                  </a>
+          {% endfor %}
+          <hr>
+      </div>
+  </div>
+
+</div>
+
+{% endblock content %}
