@@ -3,58 +3,21 @@
 {% block content %}
 <div class="row">
     <div class="col-md-4">
-        <h2>News</h2>
-        <h4>Guest Speaker, New Members</h4>
-        <p class="text-muted">2 weeks ago</p>
-        <p style="text-align: justify;">Vivi welcomed all in attendance including our guest speaker, Rosemary Deen, and our new member, Mary Beilman. We also celebrated members who have Birthdays in September, October and November.</p>
-        <img src="http://lorempixel.com/350/150/people/"> 
+        <h1>News</h1>
+        {% for news_entry in news_entry_list %}
+        <h3>{{ news_entry.title }}</h3>
+        <p>{{ news_entry.pub_date|date }}, <span class="text-muted">{{ news_entry.pub_date|timesince }} ago</span></p>
+        <p style="text-align: justify;">{{ news_entry.text|safe }}</p>
         <hr>
-        <h4>Updates on Finances</h4>
-        <p class="text-muted">3 weeks ago</p>
-        <p style="text-align: justify;">Mary Jones sent a report that we have a balance of $2735.20. Our expenses since the last meeting totaled $310.00 for the following: $50.00 for dessert at our last meeting, $75.00 to the NYS Senior Action Council and $185.00 for yoga and Community Center.<br />
-        <hr>
-        <h4>Brochures due, New Newsletter?</h4>
-        <p class="text-muted">1 month ago</p>
-        New brochures are due to be printed. Florence Staats reminded us that our website should be updated. It was suggested that we pay Max to do this.</p>
-        <hr>
-        <h4>"Food Matters" Workshop</h4>
-        <p class="text-muted">3 weeks ago</p>
-        <p style="text-align: justify;">Vivi announced our October SSIP Workshop on &#8220;Food Matters&#8221; to be held on Tuesday, October 14, 2014 from 1:00PM to 3:30PM at the Rosendale Theater. There will be an afternoon panel discussion featuring the following:</p>
-        <ul style="text-align: justify;">
-            <li>John N. Novi, The Depew Canal House &#8211; Cooking Sensibly for One</li>
-            <li>Brooke Pickering-Cole, Hudson Valley Farm Hub &#8211; Working towards a More Resilient Food System</li>
-            <li>Rachel Robinson, R.D., ShopRite of Kingston &#8211; Smart Shopping for Healthy Aging</li>
-            <li>Marge Gagnon, RN, MS, CNS, &#8211; Rose Women&#8217;s Care service &#8211; Changing Resources Refreshment will be provided and the event is free and open to the public. Members are urged to help fill the Rosendale Theater that day!</li>
-        </ul>
-        <hr>
-        <h4>New Branch </h4>
-        <p class="text-muted">3 weeks ago</p>
-        <p style="text-align: justify;">SSIP Tri-County is our new branch out on Route 28 in the Margaretville area. Please tell your friends in that area about this new branch. The President is Ralph Darmstadt. You may call him at 845-254-4368 or send an email at: RedRedKill@gmail.com</p>
-        <img src="http://lorempixel.com/350/150/people/"> 
-        <hr>
-        <p style="text-align: justify;">Game Day is at the Marbletown Community Center on the third Thursday from 2:00PM to 4:00PM; Friday morning 8 AM walks continue. Call Barbel for start location. NEW INFORMATION: Balance class will be canceled in favor of Yoga Class on Mondays from 2:00PM to 3:00PM at the Community Center &#8211; Please join us! Tell your friends!</p>
-        <hr>
-        <p style="text-align: justify;">Toby Krawitz reports: If you need work done around the house, SUNY New Paltz has a website to create your job description, pay rate and an interested college student will read your listing and reply.It is free and simple to do. The link is: <a href="https://newpaltz.studentemployment.ngwebsolutions.com">https://newpaltz.studentemployment.ngwebsolutions.com</a></p>
-        <hr>
-        <p style="text-align: justify;">Mary Beilman reported on the Rondout Valley Food Pantry. It is located at Christ the King Church Hall, 3021 Route 213 East, Stone Ridge, NY 12484. The phone number is 845-687-4013. She mentioned that all that is required is proof of residence in Ulster County. They are open on Tuesdays and Thursdays from 9:00AM to 11:00AM. In addition to providing food, they also offer Lunch on the last Tuesday of each month. The next one is Tuesday, September 30, 2014 from 11:30AM to 1:00PM.</p>
-        <p style="text-align: justify;">Rosemary Deen gave an awesome presentation on &#8216;The Curious Case of the Twelfth Century&#8221;. She talked about Banking, Law and the Jury System to name a few as they affect and relate to today&#8217;s development of banking, the codification of laws and our guarantees of trial by a jury of our peers.</p>
-        <p style="text-align: justify;">Our next business meeting will be held on November 8, 2014 at the Stone Dock Café in High Falls. Judith Gustafson will be speaking on Dog Behavior.</p>
+        {% endfor %}
     </div>
     <div class="col-md-6">
-        <h2><strong>Import Announcements</strong></h2>
-        <img src="http://lorempixel.com/600/200/people/"> 
-        <p class="lead">This coming Saturday, September 20th, there will be a Walk over the Hudson for Altzheimer’#s research. To sign in, <a title="here" href="http://act.alz.org/site/TR/Walk2014/NY-HudsonValleyRocklandWestchesterNY?fr_id=5298&amp;pg=entry">click here.</a></p>
+        <h1><strong>Import Announcements</strong></h1>
+        <p>This coming Saturday, September 20th, there will be a Walk over the Hudson for Altzheimer’#s research. To sign in, <a title="here" href="http://act.alz.org/site/TR/Walk2014/NY-HudsonValleyRocklandWestchesterNY?fr_id=5298&amp;pg=entry">click here.</a></p>
         <hr>
         <h1>Upcoming Events</h1>
         <h2>September</h2>
-        <ul>
-            <li> event one</li>
-            
-            <li> event two </li>
-        </ul>
-        <hr>
         <h2>October</h2>
-        <hr>
         <h2>November</h2>
     </div>
 </div>
