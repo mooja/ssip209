@@ -22,11 +22,11 @@ class Local(Common):
     # END INSTALLED_APPS
 
     # Mail settings
-    EMAIL_HOST = "smtp.sendgrid.net"
-    EMAIL_HOST_USER = "mooja"
-    EMAIL_PORT = 1025
-    EMAIL_BACKEND = values.Value('django.core.mail.backends.smtp.EmailBackend')
-#   EMAIL_USE_TSL = True
+    EMAIL_HOST = "localhost"
+    # EMAIL_HOST_USER = "mooja"
+    # EMAIL_PORT = 1025
+    # EMAIL_BACKEND = values.Value('django.core.mail.backends.smtp.EmailBackend')
+# #   EMAIL_USE_TSL = True
     # End mail settings
 
     # django-debug-toolbar
