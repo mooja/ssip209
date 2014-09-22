@@ -26,7 +26,7 @@
     {% endblock %}
 
     {% block angular %}
-      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+      <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script> -->
     {% endblock %}
 
   </head>
@@ -35,7 +35,7 @@
 
     <div class="header navbar">
       <div class="container">
-        <a class="navbar-brand" href="/">ssip209_project</a>
+        <a class="navbar-brand" href="/">SSIP 209</a>
         <ul class="nav navbar-nav">
           <li class="active"><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
@@ -44,8 +44,8 @@
             <li><a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
             <li><a href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
           {% else %}
-            <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
-            <li><a href="{% url 'account_login' %}">{% trans "Log In" %}</a></li>
+            <!-- <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li> -->
+            <!-- <li><a href="{% url 'account_login' %}">{% trans "Log In" %}</a></li> -->
           {% endif %}
         </ul>
       </div>
