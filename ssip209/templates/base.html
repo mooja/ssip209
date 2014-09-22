@@ -2,7 +2,7 @@
 <html lang="en" ng-app>
   <head>
     <meta charset="utf-8">
-    <title>{% block title %}ssip209_project{% endblock title %}</title>
+    <title>{% block title %}Settled and Serving in Place{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -33,12 +33,14 @@
 
   <body>
 
-    <div class="header navbar">
+    <div class="navbar">
       <div class="container">
         <a class="navbar-brand" href="/">SSIP 209</a>
         <ul class="nav navbar-nav">
           <li class="active"><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="#members">Members</a></li>
+          <li><a href="#Newsletter">Newsletter</a></li>
 
           {% if request.user.is_authenticated %}
             <li><a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
