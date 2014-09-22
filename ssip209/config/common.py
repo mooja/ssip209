@@ -103,7 +103,7 @@ class Common(Configuration):
     # MANAGER CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
     ADMINS = (
-        ('Max Shkurygin', 'max.atreides@gmail.com'),
+        ('Max Shkurygin', 'mooja@localhost'),
     )
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -128,7 +128,7 @@ class Common(Configuration):
 
     # GENERAL CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#time-zone
-    TIME_ZONE = 'America/Los_Angeles'
+    TIME_ZONE = 'America/New_York'
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
     LANGUAGE_CODE = 'en-us'
@@ -251,14 +251,24 @@ class Common(Configuration):
         'handlers': {
             'mail_admins': {
                 'level': 'ERROR',
-                'filters': ['require_debug_false'],
+                # 'filters': ['require_debug_false'],
                 'class': 'django.utils.log.AdminEmailHandler'
-            }
+            },
+            'file': {
+                 'level': 'DEBUG',
+                 'class': 'logging.FileHandler',
+                 'filename': os.path.join(BASE_DIR, 'errors.log'),
+            },
         },
         'loggers': {
             'django.request': {
-                'handlers': ['mail_admins'],
+                'handlers': ['mail_admins', 'file'],
                 'level': 'ERROR',
+                'propagate': True,
+            },
+            'django.request': {
+                'handlers': ['file', 'mail_admins'],
+                'level': 'DEBUG',
                 'propagate': True,
             },
         }
