@@ -1,8 +1,9 @@
+from django.utils.deconstruct import deconstructible
 from django.db import models
 from autoslug import AutoSlugField
-from taggit.managers import TaggableManager
 
 
+@deconstructible
 class Member(models.Model):
     """ Basic blog post """
 
