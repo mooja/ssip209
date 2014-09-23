@@ -40,7 +40,7 @@
           <li class="active"><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'news:newsentry-list' %}">News</a></li>
-          <li><a href="#members">Members</a></li>
+          <li><a href="{% url 'members:member-list' %}">Members</a></li>
           <li><a href="#Newsletter">Newsletter</a></li>
 
           {% if request.user.is_authenticated %}

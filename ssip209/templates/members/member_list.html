@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Members{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="text-center">Members</h2>
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="col-md-8 col-md-offset-2">
+      <div class="list-group">
+          {% for member in member_list %}
+            <a href="{% url 'members:member-detail' slug=member.slug %}" class="list-group-item">
+              <h4 class="list-group-item-heading">{{ member.get_full_name }}</h4>
+              <p class="list-group-item-text">{{ member.email }}</p>
+            </a>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock content %}

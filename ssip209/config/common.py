@@ -49,6 +49,7 @@ class Common(Configuration):
         'users',  # custom users app
         # Your stuff: custom apps go here
         'news',
+        'members',
     )
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -256,9 +257,9 @@ class Common(Configuration):
                 'class': 'django.utils.log.AdminEmailHandler'
             },
             'file': {
-                 'level': 'DEBUG',
-                 'class': 'logging.FileHandler',
-                 'filename': os.path.join(BASE_DIR, 'errors.log'),
+                'level': 'DEBUG',
+                'class': 'logging.FileHandler',
+                'filename': os.path.join(BASE_DIR, 'errors.log'),
             },
         },
         'loggers': {
