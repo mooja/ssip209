@@ -34,3 +34,4 @@ class NewsEntry(models.Model):
 
     class Meta:
         ordering = ['-pub_date']
+        verbose_name_plural = "News Entries"

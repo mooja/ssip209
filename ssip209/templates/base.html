@@ -24,6 +24,8 @@
     <!-- This file store project specific CSS -->
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
     {% endblock %}
+    {% block extra_css %}
+    {% endblock %}
 
     {% block angular %}
       <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script> -->
@@ -35,7 +37,7 @@
 
     <div class="navbar">
       <div class="container">
-        <a class="navbar-brand" href="/">SSIP 209</a>
+        <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-tree-deciduous"></span> SSIP 209</a>
         <ul class="nav navbar-nav">
           <li><a href="{% url 'home' %}"> Home</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
@@ -65,6 +67,9 @@
       {% block content %}
         <p>Use this document as a way to quick start any new project.</p>
       {% endblock content %}
+
+      {% block main_content %}
+      {% endblock %}
 
     </div> <!-- /container -->
     
