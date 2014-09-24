@@ -26,7 +26,7 @@ class Local(Common):
     # EMAIL_HOST_USER = "mooja"
     # EMAIL_PORT = 1025
     # EMAIL_BACKEND = values.Value('django.core.mail.backends.smtp.EmailBackend')
-# #   EMAIL_USE_TSL = True
+    # EMAIL_USE_TSL = True
     # End mail settings
 
     # django-debug-toolbar
@@ -50,4 +50,6 @@ class Local(Common):
         }
     }
     # Your local stuff: Below this line define 3rd party libary settings
+    # trying out django extensions
+    INSTALLED_APPS += ('django-extensions',)
 
