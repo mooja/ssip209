@@ -30,6 +30,8 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable avatars
     url(r'^avatar/', include('avatar.urls')),
 
+    # Uncomment the next line to enable avatars
+
     # Your stuff: custom urls go here
     # News
     url(r'^news/', include("news.urls", namespace="news")),
