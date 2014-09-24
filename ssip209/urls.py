@@ -36,5 +36,6 @@ urlpatterns = patterns('',
     # News
     url(r'^news/', include("news.urls", namespace="news")),
     url(r'^members/', include("members.urls", namespace="members")),
+    url(r'^events/', include("events.urls")),
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

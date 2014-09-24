@@ -3,30 +3,34 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
+    </div>
+    <div class="col-md-8">
+        <div class="jumbotron">
+            <h2>Announcement</h2>
+            <p>This coming Saturday, September 20th, there will be a Walk over the Hudson for Altzheimer’#s research. To sign in, <a title="here" href="http://act.alz.org/site/TR/Walk2014/NY-HudsonValleyRocklandWestchesterNY?fr_id=5298&amp;pg=entry">click here.</a></p>
+        </div>
+        <div>
         <h1>News</h1>
         {% for news_entry in news_entry_list %}
-        <h3>{{ news_entry.title }}</h3>
+        <h3><strong>{{ news_entry.title }}</strong></h3>
         <p>{{ news_entry.pub_date|date }} <span class="text-muted"> {{ news_entry.pub_date|timesince }} ago</span></p>
         <p style="text-align: justify;">{{ news_entry.text|safe }}</p>
         <hr>
         {% endfor %}
     </div>
-    <div class="col-md-6">
-        <h1>Announcements</h1>
-        <p>This coming Saturday, September 20th, there will be a Walk over the Hudson for Altzheimer’#s research. To sign in, <a title="here" href="http://act.alz.org/site/TR/Walk2014/NY-HudsonValleyRocklandWestchesterNY?fr_id=5298&amp;pg=entry">click here.</a></p>
-        <hr>
+    </div>
+    <div class="col-md-4">
+        <h2>Upcoming Events</h2>
         {% if upcoming_occurrence_list %}
-            <h2>Upcoming Events</h2>
-            {% for oc in upcoming_occurrence_list %}
-            {% ifchanged %}<h3>{{ oc.start_time|date:"F" }}</h3>{% endifchanged %}
-            <dl class="dl-horizontal">
-                <dt> {{ oc.start_time|date:"l jS" }}</dt>
-                <dd> {{ oc.title }} at {{ oc.start_time|time }} <br> {{ oc.event.description }} <br> <a href="#">Directions</a></dd>
-            <dl class="dl-horizontal">
-            </dl>
-            {% endfor %}
-        {% endif %}
+                {% for oc in upcoming_occurrence_list %}
+                {% ifchanged %}<h3>{{ oc.start_time|date:"F" }}</h3>{% endifchanged %}
+                <p {% if oc.start_time < now %}class="text-muted"{% endif %}> <span class="badge">{{ oc.start_time|date:"jS" }}</span>
+                    {{ oc.event.title }}</p>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
     </div>
 </div>
 

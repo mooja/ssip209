@@ -43,6 +43,7 @@ class Common(Configuration):
         'allauth.account',  # registration
         'allauth.socialaccount',  # registration
         'swingtime',  # events calendar
+        'events',  # events calendar
     )
 
     # Apps specific for this project go here.
