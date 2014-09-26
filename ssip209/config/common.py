@@ -43,7 +43,6 @@ class Common(Configuration):
         'allauth.account',  # registration
         'allauth.socialaccount',  # registration
         'swingtime',  # events calendar
-        'events',  # events calendar
     )
 
     # Apps specific for this project go here.
@@ -52,6 +51,7 @@ class Common(Configuration):
         # Your stuff: custom apps go here
         'news',
         'members',
+        'events',  # events calendar
     )
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -107,7 +107,7 @@ class Common(Configuration):
     # MANAGER CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
     ADMINS = (
-        ('Max Shkurygin', 'mooja@localhost'),
+        ('Max Shkurygin', 'max.atreides@gmail.com'),
     )
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -250,28 +250,46 @@ class Common(Configuration):
         'filters': {
             'require_debug_false': {
                 '()': 'django.utils.log.RequireDebugFalse'
+            },
+            'require_debug_true': {
+                '()': 'django.utils.log.RequireDebugTrue'
             }
         },
         'handlers': {
             'mail_admins': {
                 'level': 'ERROR',
-                # 'filters': ['require_debug_false'],
+                'filters': ['require_debug_false'],
                 'class': 'django.utils.log.AdminEmailHandler'
             },
-            'file': {
+            'file_debug': {
                 'level': 'DEBUG',
                 'class': 'logging.FileHandler',
-                'filename': os.path.join(BASE_DIR, 'errors.log'),
+                'filename': os.path.join(BASE_DIR, 'logs', 'debug.log'),
+            },
+            'file_info': {
+                'level': 'INFO',
+                'class': 'logging.FileHandler',
+                'filename': os.path.join(BASE_DIR, 'logs', 'info.log'),
+            },
+            'file_error': {
+                'level': 'ERROR',
+                'class': 'logging.FileHandler',
+                'filename': os.path.join(BASE_DIR, 'logs', 'error.log'),
             },
         },
         'loggers': {
             'django.request': {
-                'handlers': ['mail_admins', 'file'],
+                'handlers': ['file_error'],
                 'level': 'ERROR',
                 'propagate': True,
             },
             'django.request': {
-                'handlers': ['file', 'mail_admins'],
+                'handlers': ['file_info'],
+                'level': 'INFO',
+                'propagate': True,
+            },
+            'django.request': {
+                'handlers': ['file_debug'],
                 'level': 'DEBUG',
                 'propagate': True,
             },

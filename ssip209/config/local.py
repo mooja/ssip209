@@ -6,6 +6,7 @@ Local Configurations
 - Uses console backend for emails
 - Use Django Debug Toolbar
 '''
+from pathlib import PurePath
 from configurations import values
 from .common import Common
 
@@ -14,7 +15,8 @@ class Local(Common):
 
     # DEBUG
     DEBUG = values.BooleanValue(True)
-    TEMPLATE_DEBUG = DEBUG
+    TEMPLATE_DEBUG = values.BooleanValue(True)
+    ALLOWED_HOSTS = values.ListValue(['127.0.0.1'])
     # END DEBUG
 
     # INSTALLED_APPS
@@ -22,10 +24,14 @@ class Local(Common):
     # END INSTALLED_APPS
 
     # Mail settings
-    EMAIL_HOST = "localhost"
-    # EMAIL_HOST_USER = "mooja"
-    # EMAIL_PORT = 1025
-    # EMAIL_BACKEND = values.Value('django.core.mail.backends.smtp.EmailBackend')
+    EMAIL_HOST = values.Value('smtp.sendgrid.com')
+    EMAIL_HOST_USER = "mooja"
+    EMAIL_HOST_PASSWORD = values.SecretValue()
+    DEFAULT_FROM_EMAIL = values.Value('Max Shkurygin <max.atreides@gmail.com>')
+    EMAIL_PORT = values.IntegerValue(587, environ_prefix="", environ_name="EMAIL_PORT")
+    EMAIL_SUBJECT_PREFIX = values.Value('[SSIP 209] ', environ_name="EMAIL_SUBJECT_PREFIX")
+    EMAIL_USE_TLS = True
+    EMAIL_BACKEND = values.Value('django.core.mail.backends.smtp.EmailBackend')
     # EMAIL_USE_TSL = True
     # End mail settings
 
@@ -33,7 +39,7 @@ class Local(Common):
     MIDDLEWARE_CLASSES = Common.MIDDLEWARE_CLASSES + ('debug_toolbar.middleware.DebugToolbarMiddleware',)
     INSTALLED_APPS += ('debug_toolbar',)
 
-    INTERNAL_IPS = ('127.0.0.1', )
+    INTERNAL_IPS = values.Value(['127.0.0.1'], environ_name="INTERNAL_IPS")
 
     DEBUG_TOOLBAR_CONFIG = {
         'DISABLE_PANELS': [
@@ -43,13 +49,7 @@ class Local(Common):
     }
     # end django-debug-toolbar
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'db.sqlite3',
-        }
-    }
+    DATABASES = values.DatabaseURLValue("sqlite:///db.sqlite3")
     # Your local stuff: Below this line define 3rd party libary settings
     # trying out django extensions
-    INSTALLED_APPS += ('django-extensions',)
-
+    INSTALLED_APPS += ('django_extensions',)
