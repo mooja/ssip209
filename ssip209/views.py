@@ -11,7 +11,7 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         eastern_tz = timezone('US/Eastern')
         upper_bound = datetime.now(tz=eastern_tz) + timedelta(weeks=2)
-        lower_bound = datetime.now(tz=eastern_tz) - timedelta(days=3)
+        lower_bound = datetime.now(tz=eastern_tz) - timedelta(days=0)
         upcoming_occurrence_list = Occurrence.objects.all(
                 ).filter(start_time__gte=lower_bound
                 ).filter(start_time__lte=upper_bound)

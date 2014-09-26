@@ -3,34 +3,34 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-md-12">
-    </div>
     <div class="col-md-8">
         <div class="jumbotron">
             <h2>Announcement</h2>
             <p>This coming Saturday, September 20th, there will be a Walk over the Hudson for Altzheimer’#s research. To sign in, <a title="here" href="http://act.alz.org/site/TR/Walk2014/NY-HudsonValleyRocklandWestchesterNY?fr_id=5298&amp;pg=entry">click here.</a></p>
         </div>
         <div>
-        <h1>News</h1>
-        {% for news_entry in news_entry_list %}
-        <h3><strong>{{ news_entry.title }}</strong></h3>
-        <p>{{ news_entry.pub_date|date }} <span class="text-muted"> {{ news_entry.pub_date|timesince }} ago</span></p>
-        <p style="text-align: justify;">{{ news_entry.text|safe }}</p>
-        <hr>
-        {% endfor %}
-    </div>
+            <h1>News</h1>
+            {% for news_entry in news_entry_list %}
+            <h3><strong>{{ news_entry.title }}</strong> <small>{{ news_entry.pub_date|date:"F jS, Y" }}</small></h3>
+            {{ news_entry.text|safe }}
+            <hr>
+            {% endfor %}
+        </div>
     </div>
     <div class="col-md-4">
         <h2>Upcoming Events</h2>
         {% if upcoming_occurrence_list %}
-                {% for oc in upcoming_occurrence_list %}
-                {% ifchanged %}<h3>{{ oc.start_time|date:"F" }}</h3>{% endifchanged %}
-                <p {% if oc.start_time < now %}class="text-muted"{% endif %}> <span class="badge">{{ oc.start_time|date:"jS" }}</span>
-                    {{ oc.event.title }}</p>
-                {% endfor %}
-                {% endif %}
+        {% for oc in upcoming_occurrence_list %}
+        {% ifchanged %}<h3>{{ oc.start_time|date:"F" }}</h3>{% endifchanged %}
+        <div class="media">
+            <a class="pull-left" {% if oc.start_time < now %}class="text-muted"{% endif %}> <span class="badge pull-left">{{ oc.start_time|date:"jS" }}</span></a>
+            <div class="media-body">
+                <h4 class="media-heading">{{ oc.event.title }}</h4>
+                <p><span class="glyphicon glyphicon-time"></span> 9 AM <span class="label label-default"> Details </span></p>
             </div>
         </div>
+        {% endfor %}
+        {% endif %}
     </div>
 </div>
 
