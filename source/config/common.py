@@ -16,6 +16,7 @@ from os.path import join, dirname
 from configurations import Configuration, values
 
 BASE_DIR = dirname(dirname(__file__))
+SITE_DIR = dirname(BASE_DIR)
 
 
 class Common(Configuration):
@@ -264,17 +265,17 @@ class Common(Configuration):
             'file_debug': {
                 'level': 'DEBUG',
                 'class': 'logging.FileHandler',
-                'filename': os.path.join(BASE_DIR, 'logs', 'debug.log'),
+                'filename': os.path.join(SITE_DIR, 'logs', 'debug.log'),
             },
             'file_info': {
                 'level': 'INFO',
                 'class': 'logging.FileHandler',
-                'filename': os.path.join(BASE_DIR, 'logs', 'info.log'),
+                'filename': os.path.join(SITE_DIR, 'logs', 'info.log'),
             },
             'file_error': {
                 'level': 'ERROR',
                 'class': 'logging.FileHandler',
-                'filename': os.path.join(BASE_DIR, 'logs', 'error.log'),
+                'filename': os.path.join(SITE_DIR, 'logs', 'error.log'),
             },
         },
         'loggers': {
