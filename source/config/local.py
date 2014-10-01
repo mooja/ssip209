@@ -25,7 +25,7 @@ class Local(Common):
 
     # Mail settings
     EMAIL_HOST = values.Value('smtp.sendgrid.com')
-    EMAIL_HOST_USER = "mooja"
+    EMAIL_HOST_USER = values.Value("mooja")
     EMAIL_HOST_PASSWORD = values.SecretValue()
     DEFAULT_FROM_EMAIL = values.Value('Max Shkurygin <max.atreides@gmail.com>')
     EMAIL_PORT = values.IntegerValue(587, environ_prefix="", environ_name="EMAIL_PORT")
@@ -49,7 +49,7 @@ class Local(Common):
     }
     # end django-debug-toolbar
 
-    DATABASES = values.DatabaseURLValue("sqlite:///db.sqlite3")
+    DATABASES = values.DatabaseURLValue("sqlite:///database/db.sqlite3")
     # Your local stuff: Below this line define 3rd party libary settings
     # trying out django extensions
     INSTALLED_APPS += ('django_extensions',)
