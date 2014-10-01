@@ -26,7 +26,7 @@ django-allauth==0.18.0
 psycopg2==2.5.4
 
 # Unicode slugification
-# unicode-slugify==0.1.1
+unicode-slugify==0.1.1
 django-autoslug==1.7.2
 
 # Useful things
@@ -36,3 +36,4 @@ django-avatar==2.0
 # Your custom requirements go here
 Markdown==2.5
 django-swingtime==0.4
+django-extensions
