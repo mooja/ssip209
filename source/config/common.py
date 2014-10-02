@@ -265,17 +265,17 @@ class Common(Configuration):
             'file_debug': {
                 'level': 'DEBUG',
                 'class': 'logging.FileHandler',
-                'filename': os.path.join(SITE_DIR, 'logs', 'debug.log'),
+                'filename': 'debug.log',
             },
             'file_info': {
                 'level': 'INFO',
                 'class': 'logging.FileHandler',
-                'filename': os.path.join(SITE_DIR, 'logs', 'info.log'),
+                'filename': 'info.log',
             },
             'file_error': {
                 'level': 'ERROR',
                 'class': 'logging.FileHandler',
-                'filename': os.path.join(SITE_DIR, 'logs', 'error.log'),
+                'filename': 'error.log',
             },
         },
         'loggers': {
