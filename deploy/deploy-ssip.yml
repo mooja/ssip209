@@ -20,11 +20,11 @@
   handlers:
 
     - name: reload nginx
-      service: name=nginx enabled=yes state=reloaded
+      service: name=nginx enabled=yes state=restarted
       sudo_user: root
 
     - name: reload gunicorn
-      service: name={{ vhost }} state=reloaded enabled=yes
+      service: name={{ vhost }} state=restarted enabled=yes
       sudo_user: root
 
   tasks: 
