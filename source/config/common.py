@@ -117,18 +117,18 @@ class Common(Configuration):
 
     # DATABASE CONFIGURATION
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-    DATABASES = values.DatabaseURLValue('postgres://localhost/ssip209')
+    DATABASES = values.DatabaseURLValue()
     # END DATABASE CONFIGURATION
 
     # CACHING
     # Do this here because thanks to django-pylibmc-sasl and pylibmc
     # memcacheify (used on heroku) is painful to install on windows.
-    CACHES = {
-        'default': {
-            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-            'LOCATION': ''
-        }
-    }
+    # CACHES = {
+    #     'default': {
+    #         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    #         'LOCATION': ''
+    #     }
+    # }
     # END CACHING
 
     # GENERAL CONFIGURATION
