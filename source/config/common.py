@@ -265,17 +265,17 @@ class Common(Configuration):
             'file_debug': {
                 'level': 'DEBUG',
                 'class': 'logging.FileHandler',
-                'filename': 'debug.log',
+                'filename': '../logs/debug.log',
             },
             'file_info': {
                 'level': 'INFO',
                 'class': 'logging.FileHandler',
-                'filename': 'info.log',
+                'filename': '../logs/info.log',
             },
             'file_error': {
                 'level': 'ERROR',
                 'class': 'logging.FileHandler',
-                'filename': 'error.log',
+                'filename': '../logs/error.log',
             },
         },
         'loggers': {
