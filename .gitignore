@@ -30,3 +30,14 @@ node_modules/
 
 # Campass
 .sass-cache
+
+# django specific
+envdirs*
+staticfiles*
+*.sqlite3
+
+# ssip specific
+hosts-*
+bootstrap-theme.css*
+bootstrap.css*
+bootstrap.js
