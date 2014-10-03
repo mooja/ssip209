@@ -16,7 +16,7 @@ class Local(Common):
     # DEBUG
     DEBUG = values.BooleanValue(True)
     TEMPLATE_DEBUG = values.BooleanValue(True)
-    ALLOWED_HOSTS = values.ListValue(['127.0.0.1'])
+    ALLOWED_HOSTS = values.ListValue(['127.0.0.1', 'localhost'])
     # END DEBUG
 
     # INSTALLED_APPS
