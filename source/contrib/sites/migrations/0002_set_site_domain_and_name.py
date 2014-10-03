@@ -11,8 +11,8 @@ def update_site_forward(apps, schema_editor):
     Site.objects.update_or_create(
         id=settings.SITE_ID,
         defaults={
-            "domain": "ssip209.org",
-            "name": "ssip209_project"
+            "domain": "ssip-staging.spacedonkey.org",
+            "name": "SSIP 209"
         }
     )
 
