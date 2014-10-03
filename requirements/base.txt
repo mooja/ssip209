@@ -34,7 +34,9 @@ django-avatar==2.0
 
 
 # Your custom requirements go here
+slugify
 Markdown==2.5
 django-swingtime==0.4
 django-extensions
 envdir
+pytz
