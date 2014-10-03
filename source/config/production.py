@@ -88,14 +88,14 @@ class Production(Common):
     # END STORAGE CONFIGURATION
 
     # EMAIL
-    # DEFAULT_FROM_EMAIL = values.Value('ssip209_project <noreply@ssip209.org>')
-    # EMAIL_HOST = values.Value('smtp.sendgrid.com')
-    # EMAIL_HOST_PASSWORD = values.SecretValue(environ_prefix="", environ_name="SENDGRID_PASSWORD")
-    # EMAIL_HOST_USER = values.SecretValue(environ_prefix="", environ_name="SENDGRID_USERNAME")
-    # EMAIL_PORT = values.IntegerValue(587, environ_prefix="", environ_name="EMAIL_PORT")
-    # EMAIL_SUBJECT_PREFIX = values.Value('[ssip209_project] ', environ_name="EMAIL_SUBJECT_PREFIX")
-    # EMAIL_USE_TLS = True
-    # SERVER_EMAIL = EMAIL_HOST_USER
+    DEFAULT_FROM_EMAIL = values.Value('[SSIP 209] <noreply@ssip209.org>')
+    EMAIL_HOST = values.Value()
+    EMAIL_HOST_PASSWORD = values.SecretValue()
+    EMAIL_HOST_USER = values.SecretValue()
+    EMAIL_PORT = values.IntegerValue(587)
+    EMAIL_SUBJECT_PREFIX = values.Value('[SSIP 209]', environ_name="EMAIL_SUBJECT_PREFIX")
+    EMAIL_USE_TLS = True
+    SERVER_EMAIL = EMAIL_HOST_USER
     # END EMAIL
 
     # TEMPLATE CONFIGURATION
