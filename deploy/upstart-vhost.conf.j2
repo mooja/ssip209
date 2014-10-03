@@ -1,0 +1,17 @@
+description "{{ vhost }} django server"
+
+start on net-device-up
+stop on shutdown
+
+respawn
+
+setuid www-data
+setgid www-data
+
+
+chdir /srv/webapps/{{ vhost }}/source
+
+exec {{ venv_root }}/bin/envdir {{ envdir_root }}/production \
+     {{ venv_root }}/bin/gunicorn \
+     --bind unix:/tmp/{{ vhost }}.socket \
+     wsgi:application

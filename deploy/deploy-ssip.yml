@@ -1,0 +1,104 @@
+# vim: tabstop=2 expandtab shiftwidth=2 softtabstop=2 noai
+---
+
+- name: Deploy SSIP 209 Application to {{ vhost }}
+  hosts: spacedonkey
+  remote_user: www-data
+  sudo: yes
+
+  vars: 
+
+      vhost: ssip.spacedonkey.org
+      site_root: "/srv/webapps/{{ vhost }}"
+      venv_root: "{{ site_root }}/virtualenv"
+      python_path: "{{ venv_root }}/bin/python"
+      static_root: "{{ site_root }}/staticfiles"
+      envdir_root: "{{ site_root }}/envdirs"
+      manage_command: "{{ venv_root }}/bin/envdir {{ site_root }}/envdirs/production {{ python_path }} {{ site_root }}/source/manage.py"
+
+  tasks: 
+
+    - name: Install Basic System Packages
+      apt: pkg={{ item }} state=present
+      with_items:
+        - python3.4
+        - python3-dev
+        - python3-pip
+        - python-virtualenv
+        - zlib1g-dev
+        - libpq-dev
+        - git
+
+
+    # Web App
+
+    - name: "Clone SSIP 209 Repository into {{ site_root }}"
+      git: repo=git://github.com/mooja/ssip209/ dest={{ site_root }} accept_hostkey=yes
+
+
+    - name: Create Virtual Environment at {{ venv_root }}
+      command: virtualenv {{ venv_root }} --python=python3 creates={{ venv_root }}/bin/python
+
+
+    - name: Install App's Requirements into the Virtual Environment
+      pip: executable={{ venv_root }}/bin/pip3 
+             requirements={{ site_root }}/requirements/production.txt 
+             state=present
+
+
+    - name: Upload envdirs folder
+      synchronize: src=/home/mooja/projects/ssip209/envdirs 
+                     dest={{ site_root }} 
+                     recursive=yes 
+                     delete=yes 
+                     archive=no
+
+
+    - name: Create database directory
+      file: dest={{ site_root }}/source/database state=directory owner=www-data group=www-data
+
+    - name: Make Migrations
+      command: "{{ manage_command }} makemigrations chdir={{ site_root }}/source"
+
+    - name: Migrate
+      command: "{{ manage_command }} migrate chdir={{ site_root }}/source"
+
+    - name: Collect Static
+      command: "{{ manage_command }} collectstatic --noinput chdir={{ site_root }}/source"
+
+    # change everything to www-data o,g: +rw
+
+    - name: Change File Owner and Group to www-data
+      file: dest={{ site_root }} state=directory owner=www-data group=www-data recurse=yes
+
+    - name: Change File Permissions G+RW
+      command: chmod -R g+rw {{ site_root }}
+
+
+    # NGINX 
+
+    - name: Install Nginx
+      apt: pkg=nginx state=present
+
+
+    - name: Create Nginx Virtual Host for {{ vhost }}
+      template: src=nginx-vhost.conf.j2 dest=/etc/nginx/sites-available/{{ vhost }}
+      # TODO: notify: reload nginx
+
+
+    - name: Link {{ vhost }} in /etc/nginx/sites-enabled
+      file: state=link dest=/etc/nginx/sites-enabled/{{ vhost }} src=/etc/nginx/sites-available/{{ vhost }}
+      # TODO: notify: reload nginx
+
+
+    # UPSTART
+
+    - name: Create an Upstart file for {{ vhost }}
+      template: src=upstart-vhost.conf.j2 dest=/etc/init/{{ vhost }}.conf
+      # TODO: notify: restart app
+
+
+    - name: Reload Nginx and Gunicorn
+      debug: msg="Reload Nginx and Gunicorn"
+
+      # chmod everthing to www-data
