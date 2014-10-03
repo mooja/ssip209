@@ -88,14 +88,14 @@ class Production(Common):
     # END STORAGE CONFIGURATION
 
     # EMAIL
-    DEFAULT_FROM_EMAIL = values.Value('[SSIP 209] <noreply@ssip209.org>')
+    DEFAULT_FROM_EMAIL = values.Value('[SSIP 209] <noreply@ssip.org>')
     EMAIL_HOST = values.Value()
     EMAIL_HOST_PASSWORD = values.SecretValue()
     EMAIL_HOST_USER = values.SecretValue()
     EMAIL_PORT = values.IntegerValue(587)
     EMAIL_SUBJECT_PREFIX = values.Value('[SSIP 209]', environ_name="EMAIL_SUBJECT_PREFIX")
     EMAIL_USE_TLS = True
-    SERVER_EMAIL = EMAIL_HOST_USER
+    SERVER_EMAIL = values.Value('noreply@spacedonkey.org')
     # END EMAIL
 
     # TEMPLATE CONFIGURATION

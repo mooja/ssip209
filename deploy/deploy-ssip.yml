@@ -74,12 +74,7 @@
 
 
     - name: Get envdirs for site specific configuratoin
-      sudo_user: www-data
-      synchronize: src=/home/mooja/projects/ssip209/envdirs 
-                     dest={{ site_root }} 
-                     recursive=yes 
-                     delete=yes 
-                     archive=yes
+      unarchive: src=envdirs.tar.gz dest={{ site_root }}
       notify:
         - reload gunicorn
 
