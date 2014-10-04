@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}"> -->
 
     <!-- Your stuff: Third-party css libraries go here -->
 
@@ -32,30 +32,55 @@
     {% endblock %}
 
   </head>
-
   <body>
-
-    <div class="navbar">
-      <div class="container">
-        <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-tree-deciduous"></span> SSIP 209</a>
-        <ul class="nav navbar-nav">
-          <li><a href="{% url 'home' %}"> Home</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'members:member-list' %}">Members</a></li>
-          <li><a href="#Newsletter">Newsletter</a></li>
-
-          {% if request.user.is_authenticated %}
-            <li><a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
-            <li><a href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
-          {% else %}
-            <!-- <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li> -->
-            <!-- <li><a href="{% url 'account_login' %}">{% trans "Log In" %}</a></li> -->
-          {% endif %}
-        </ul>
+  <div class="navbar navbar-default">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-tree-deciduous"></span> SSIP 209</a>
       </div>
-    </div>
-
-    <div class="container">
+      <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+              <li><a href="{% url 'home' %}"> Home</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{% url 'members:member-list' %}">Members</a></li>
+              <li><a href="#Newsletter">Newsletter</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  {% if request.user.is_authenticated %}
+                  <li><a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
+                  <li><a href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
+                  {% else %}
+                  <!-- <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li> -->
+                  <!-- <li><a href="{% url 'account_login' %}">{% trans "Log In" %}</a></li> -->
+                  {% endif %}
+                  <li><a href="#">Logout</a></li>
+                  <li><a href="#">Edit Events</a></li>
+                  <li><a href="#">Edit Pages</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+              </ul>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div class="splash">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-8 col-md-offset-1">
+                  <h1>SSIP 209</h1>
+                  <p class="lead"> Settled and Serving in Place </p>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="container">
         
       {% if messages %}
           {% for message in messages %}

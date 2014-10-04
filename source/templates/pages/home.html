@@ -3,34 +3,36 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-md-8">
-        <div class="jumbotron">
-            <h2>Announcement</h2>
-            <p>This coming Saturday, September 20th, there will be a Walk over the Hudson for Altzheimer’#s research. To sign in, <a title="here" href="http://act.alz.org/site/TR/Walk2014/NY-HudsonValleyRocklandWestchesterNY?fr_id=5298&amp;pg=entry">click here.</a></p>
-        </div>
-        <div>
-            <h1>News</h1>
-            {% for news_entry in news_entry_list %}
-            <h3><strong>{{ news_entry.title }}</strong> <small>{{ news_entry.pub_date|date:"F jS, Y" }}</small></h3>
-            {{ news_entry.text|safe }}
-            <hr>
-            {% endfor %}
-        </div>
-    </div>
-    <div class="col-md-4">
-        <h2>Upcoming Events</h2>
-        {% if upcoming_occurrence_list %}
-        {% for oc in upcoming_occurrence_list %}
-        {% ifchanged %}<h3>{{ oc.start_time|date:"F" }}</h3>{% endifchanged %}
-        <div class="media">
-            <a class="pull-left" {% if oc.start_time < now %}class="text-muted"{% endif %}> <span class="badge pull-left">{{ oc.start_time|date:"jS" }}</span></a>
-            <div class="media-body">
-                <h4 class="media-heading">{{ oc.event.title }}</h4>
-                <p><span class="glyphicon glyphicon-time"></span> 9 AM <span class="label label-default"> Details </span></p>
+    <div class="col-md-10">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2><b>News</b></h2>
+                    {% for news_entry in news_entry_list %}
+                    <h3>{{ news_entry.title }}<small> {{ news_entry.pub_date|date:"F jS, Y" }}</small></h3>
+                    {{ news_entry.text|safe }}
+                    <p></p>
+                    <hr>
+                    {% endfor %}
+                </div>
+                <div class="col-md-4 hidden-xs">
+                    <h3><b>Upcoming Events</b></h3>
+                    {% if upcoming_occurrence_list %}
+                    {% for oc in upcoming_occurrence_list %}
+                    {% ifchanged %}<h3>{{ oc.start_time|date:"F" }}</h2>{% endifchanged %}
+                    <div class="media">
+                        <a class="pull-left" {% if oc.start_time < now %}class="text-muted"{% endif %}> <span class="badge pull-left">{{ oc.start_time|date:"jS" }}</span></a>
+                        <div class="media-body">
+                            <h5 class="media-heading"><strong>{{ oc.event.title }}</strong></h5>
+                            <p>This Thurday at 9 AM </p>
+                            <p><a><span class="glyphicon glyphicon-info-sign"></span> Directions</a></p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
             </div>
         </div>
-        {% endfor %}
-        {% endif %}
     </div>
 </div>
 
