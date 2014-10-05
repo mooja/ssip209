@@ -15,10 +15,11 @@
                         {% endfor %}
                     </div>
                     <div class="col-md-4 hidden-xs home-events">
+                        <div class="well">
                         <h3><b>Upcoming Events</b></h3>
                         {% if upcoming_occurrence_list %}
                         {% for oc in upcoming_occurrence_list %}
-                        {% ifchanged %}<h4>{{ oc.start_time|date:"F" }}</h4>{% endifchanged %}
+                        {% ifchanged %}<h3>{{ oc.start_time|date:"F" }}</h3>{% endifchanged %}
                         <div class="media">
                             <a class="pull-left" {% if oc.start_time < now %}class="text-muted"{% endif %}> <span class="badge pull-left">{{ oc.start_time|date:"jS" }}</span></a>
                             <div class="media-body">
@@ -29,6 +30,7 @@
                         </div>
                         {% endfor %}
                         {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
