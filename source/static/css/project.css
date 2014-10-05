@@ -33,3 +33,16 @@
   line-height: 1;
   letter-spacing: -1px;
 }
+
+.home-events h3 {
+    margin-bottom: 1.5em;
+}
+
+.home-events p,a {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.home-news h3 {
+    margin-top: 1.5em;
+}

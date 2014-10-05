@@ -2,38 +2,38 @@
 {% load tz %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-10">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-8">
-                    <h2><b>News</b></h2>
-                    {% for news_entry in news_entry_list %}
-                    <h3>{{ news_entry.title }}<small> {{ news_entry.pub_date|date:"F jS, Y" }}</small></h3>
-                    {{ news_entry.text|safe }}
-                    <p></p>
-                    <hr>
-                    {% endfor %}
-                </div>
-                <div class="col-md-4 hidden-xs">
-                    <h3><b>Upcoming Events</b></h3>
-                    {% if upcoming_occurrence_list %}
-                    {% for oc in upcoming_occurrence_list %}
-                    {% ifchanged %}<h3>{{ oc.start_time|date:"F" }}</h2>{% endifchanged %}
-                    <div class="media">
-                        <a class="pull-left" {% if oc.start_time < now %}class="text-muted"{% endif %}> <span class="badge pull-left">{{ oc.start_time|date:"jS" }}</span></a>
-                        <div class="media-body">
-                            <h5 class="media-heading"><strong>{{ oc.event.title }}</strong></h5>
-                            <p>This Thurday at 9 AM </p>
-                            <p><a><span class="glyphicon glyphicon-info-sign"></span> Directions</a></p>
-                        </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7 home-news">
+                        <h2><b>News</b></h2>
+                        {% for news_entry in news_entry_list %}
+                        <h3>{{ news_entry.title }}<small> {{ news_entry.pub_date|date:"F jS, Y" }}</small></h3>
+                        {{ news_entry.text|safe }}
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                    {% endif %}
+                    <div class="col-md-4 hidden-xs home-events">
+                        <h3><b>Upcoming Events</b></h3>
+                        {% if upcoming_occurrence_list %}
+                        {% for oc in upcoming_occurrence_list %}
+                        {% ifchanged %}<h4>{{ oc.start_time|date:"F" }}</h4>{% endifchanged %}
+                        <div class="media">
+                            <a class="pull-left" {% if oc.start_time < now %}class="text-muted"{% endif %}> <span class="badge pull-left">{{ oc.start_time|date:"jS" }}</span></a>
+                            <div class="media-body">
+                                <h5 class="media-heading"><strong>{{ oc.event.title }}</strong></h5>
+                                <p>This Thurday at 9 AM </p>
+                                <p><a><span class="glyphicon glyphicon-info-sign"></span> Directions</a></p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div><!-- /container -->
 
 {% endblock %}
