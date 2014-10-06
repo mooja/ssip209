@@ -2,36 +2,52 @@
 
 {% block title %}Members{% endblock %}
 
+{% block splash %}
+<div class="splash">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <h1>Members</h1>
+                <p class="lead"> </p>
+            </div>
+        </div>
+    </div>
+</div><!-- /container -->
+{% endblock %}
+
 {% block content %}
 
 <div class="container">
-    
-  <div class="row">
-    <div class="col-xs-12">
-      <h2 class="text-center">Members</h2>
+    <div class="row">
+        <div class="col-md-10">
+            <div id="members">
+                <button class="sort btn btn-primary btn-lg" data-sort="email">
+                    Sort by E-mail
+                </button>
+                <button class="sort btn btn-primary btn-lg" data-sort="full_name">
+                    Sort by Name
+                </button>
+                <button class="sort btn btn-primary btn-lg" data-sort="town">
+                    Sort by Town
+                </button>
+                <ul class="list">
+                    {% for member in member_list %}
+                    <li>
+                    <h3 class="full_name">
+                        {{ member.get_full_name }}
+                    </h3>
+                    <p class="email">
+                    <!-- <a href="{% url 'members:member-detail' slug=member.slug %}" class="list-group-item">{{ member.email }}</a> -->
+                    {{ member.email }}
+                    </p>
+                    <p class="town">
+                    {{ member.town }}
+                    </p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-          <table class="table">
-              <tr>
-                  <th>name</th>
-                  <th>email</th>
-              </tr>
-              {% for member in member_list %}
-              <tr>
-                  <td>
-                      <a href="{% url 'members:member-detail' slug=member.slug %}" class="list-group-item">{{ member.get_full_name }}</a>
-                  </td>
-                  <td>
-                      <a href="{% url 'members:member-detail' slug=member.slug %}" class="list-group-item">{{ member.email }}</a>
-                  </td>
-              </tr>
-              {% endfor %}
-          </table>
-      </div>
-  </div>
-
-</div>
 
 {% endblock content %}

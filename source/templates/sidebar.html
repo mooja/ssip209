@@ -1,0 +1,16 @@
+            {% if upcoming_occurrence_list %}
+            <div class="well home-events">
+                <h2><b>Upcoming Events</b></h2>
+                {% for oc in upcoming_occurrence_list %}
+                {% ifchanged %}<h3 class="events-month">{{ oc.start_time|date:"F" }}</h3>{% endifchanged %}
+                <div class="media">
+                    <a class="pull-left" {% if oc.start_time < now %}class="text-muted"{% endif %}> <span class="badge pull-left">{{ oc.start_time|date:"jS" }}</span></a>
+                    <div class="media-body">
+                        <h5 class="media-heading"><strong>{{ oc.event.title }}</strong></h5>
+                        <p>this {{ oc.start_time|date:"l"}} at {{ oc.start_time|date:"f a" }}</p>
+                        <p><a class="text-info"><span class="glyphicon glyphicon-info-sign"></span> Directions</a></p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}

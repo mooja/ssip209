@@ -2,32 +2,46 @@
 {% load tz %}
 
 {% block content %}
-<div class="container home-wrapper">
+<!-- <div class="container-fluid home-announcements"> -->
+<!--     <div class="row hidden-xs"> -->
+<!--         <div class="col-md-10"> -->
+<!--             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"> -->
+<!--                 <1!-- Indicators --1> -->
+<!--                 <ol class="carousel-indicators"> -->
+<!--                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li> -->
+<!--                     <li data-target="#carousel-example-generic" data-slide-to="1"></li> -->
+<!--                     <li data-target="#carousel-example-generic" data-slide-to="2"></li> -->
+<!--                 </ol> -->
+<!--                 <1!-- Wrapper for slides --1> -->
+<!--                 <div class="carousel-inner"> -->
+<!--                     <div class="item active"> -->
+<!--                     </div> -->
+<!--                     <div class="item"> -->
+<!--                     </div> -->
+<!--                     <div class="item"> -->
+<!--                     </div> -->
+<!--                 </div> -->
+<!--                 <1!-- <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> --1> -->
+<!--                 <1!--     <span class="glyphicon glyphicon-chevron-left"></span> --1> -->
+<!--                 <1!-- </a> --1> -->
+<!--                 <1!-- <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> --1> -->
+<!--                 <1!--     <span class="glyphicon glyphicon-chevron-right"></span> --1> -->
+<!--                 <1!-- </a> --1> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+<!-- </div> -->
+<div class="container">
     <div class="row">
         <div class="col-md-6 home-news">
-            <h2><b>News</b></h2>
+            <h1><b>Recent News</b></h1>
             {% for news_entry in news_entry_list %}
-            <h3>{{ news_entry.title }}<small> {{ news_entry.pub_date|date:"F jS, Y" }}</small></h3>
+            <h2>{{ news_entry.title }}<small> {{ news_entry.pub_date|date:"F jS, Y" }}</small></h2>
             {{ news_entry.text|safe }}
             {% endfor %}
         </div>
-        <div class="col-md-4 hidden-xs home-events">
-            <div class="well">
-                <h3>Upcoming Events</h3>
-                {% if upcoming_occurrence_list %}
-                {% for oc in upcoming_occurrence_list %}
-                {% ifchanged %}<h3>{{ oc.start_time|date:"F" }}</h3>{% endifchanged %}
-                <div class="media">
-                    <a class="pull-left" {% if oc.start_time < now %}class="text-muted"{% endif %}> <span class="badge pull-left">{{ oc.start_time|date:"jS" }}</span></a>
-                    <div class="media-body">
-                        <h5 class="media-heading"><strong>{{ oc.event.title }}</strong></h5>
-                        <p>This Thurday at 9 AM </p>
-                        <p><a><span class="glyphicon glyphicon-info-sign"></span> Directions</a></p>
-                    </div>
-                </div>
-                {% endfor %}
-                {% endif %}
-            </div>
+        <div class="col-md-4">
+            {% include "sidebar.html" %}
         </div>
     </div>
 </div><!-- /container -->
