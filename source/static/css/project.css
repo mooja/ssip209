@@ -62,10 +62,11 @@ footer {
 }
 
 /* isotope */
-.member {
-    width: 75%;
+
+.media {
+    padding: 0.4em;
 }
 
-#members {
-    display: hidden;
+.media p {
+    margin: 0;
 }
