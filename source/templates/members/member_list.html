@@ -20,47 +20,64 @@
 <!-- <a href=" url 'members:member-detail' slug=member.slug " class="list-group-item">{{ member.email }}</a> -->
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <button id="hobbies" class="btn btn-success btn-md"> Toggle Hobbies </button>
+        <div class="col-md-10 data-filters">
+            <div class="well">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Search Members" type="text"/>
+                </div>
+                <p>
+                <button id="hobbies-toggle" class="btn btn-success btn-sm"> Hobbies </button>
+                <button id="canhelp-toggle" class="btn btn-success btn-sm"> I Can Help With </button>
+                </p>
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-        <div id="members">
-            {% for member in member_list %}
-            <div class="col-lg-6 col-md-12 col-sm-12">
-                <div class="media well">
-                    <a class="pull-left">
-                        <img class="media-object" src="http://placehold.it/128x128/">
-                    </a>
-                    <div class="media-body">
-                        <h3 class="media-heading name">
-                            {{ member.last_name }}, {{ member.first_name }}
-                        </h3>
+        <div class="col-md-10">
+            <div class="row" id="members">
+                {% for member in member_list %}
+                <div class="col-md-12">
+                    <div class="well well-sm member-data">
+                        <div class="basic-data">
+                            <img class="pull-left" src="http://placehold.it/128x128/">
+                            <h3 class="media-heading name">
+                                {{ member.last_name }}, {{ member.first_name }}
+                            </h3>
 
-                        {% if member.homephone %}
-                        <p class="homephone">(Home) {{ member.homephone }}</p>
-                        {% endif %}
+                            {% if member.town %}
+                            <p> {{ member.town }}</p>
+                            {% endif %}
 
-                        {% if member.cellphone %}
-                        <p class="cellphone">(Cell) {{ member.cellphone }}</p>
-                        {% endif %}
+                            {% if member.homephone %}
+                            <p class="homephone">(Home) {{ member.homephone }}</p>
+                            {% endif %}
 
-                        {% if member.email %}
-                        <p class="email"><a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
-                        {% endif %}
+                            {% if member.cellphone %}
+                            <p class="cellphone">(Cell) {{ member.cellphone }}</p>
+                            {% endif %}
 
-                        {% if member.hobbies %}
-                        <p class="hobbies"><span class="glyphicon glyphicon-heart"></span> {{ member.hobbies }}</p>
-                        {% endif %}
+                            {% if member.email %}
+                            <p class="email"><a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
+                            {% endif %}
+                        </div>
+                        <div class="detail-data">
+                            {% if member.hobbies %}
+                            <p class="hobbies">My hobbies are: </span> {{ member.hobbies }}</p>
+                            {% endif %}
 
+                            {% if member.canhelp %}
+                            <p class="canhelp">I can help with: {{ member.canhelp }}</p>
+                            {% endif %}
+
+                            {% if member.needhelp %}
+                            <p class="needhelp">I could use help with: {{ member.needhelp }}</p>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
     </div>
-</div>
 </div>
 
     {% endblock content %}

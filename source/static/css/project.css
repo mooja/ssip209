@@ -16,16 +16,6 @@
     font-size: 60px;
 }
 
-.carousel {
-    height: 150px;
-    background-color: #93C54B;
-}
-
-.carousel.item {
-    height: 150px;
-    background-color: #93C54B;
-}
-
 .home-announcements {
     background-color: #93C54B;
     padding: 0;
@@ -63,10 +53,21 @@ footer {
 
 /* isotope */
 
-.media {
-    padding: 0.4em;
+.member-data {
+    padding: 0.5rem;
 }
 
-.media p {
+.member-data p {
     margin: 0;
+    margin-left: 1em;
+    line-height: 1.6em;
+}
+
+.member-data img {
+    margin-right: 1rem;
+}
+
+.data-filters {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
