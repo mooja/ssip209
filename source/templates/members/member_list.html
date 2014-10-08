@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10">
-                <h1>Members</h1>
+                <h1>SSIP 209 Members</h1>
                 <p class="lead"> </p>
             </div>
         </div>
@@ -20,44 +20,47 @@
 <!-- <a href=" url 'members:member-detail' slug=member.slug " class="list-group-item">{{ member.email }}</a> -->
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <div class="row">
-                <div id="members">
-                    {% for member in member_list %}
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <div class="media well">
-                            <a class="pull-left">
-                                <img class="media-object" src="http://placehold.it/128x128/">
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">
-                                    {{ member.last_name }}, {{ member.first_name }}
-                                </h3>
-
-                                {% if member.homephone %}
-                                <p class="homephone">(Home) {{ member.homephone }}</p>
-                                {% endif %}
-
-                                {% if member.cellphone %}
-                                <p class="cellphone">(Cell) {{ member.cellphone }}</p>
-                                {% endif %}
-
-                                {% if member.email %}
-                                <p class="email"><a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
-                                {% endif %}
-
-                                {% if member.hobbies %}
-                                <p class="hobbies"><span class="glyphicon glyphicon-heart"></span> {{ member.hobbies }}</p>
-                                {% endif %}
-
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
+        <div class="col-md-8 col-md-offset-2">
+            <button id="hobbies" class="btn btn-success btn-md"> Toggle Hobbies </button>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12">
+        <div id="members">
+            {% for member in member_list %}
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="media well">
+                    <a class="pull-left">
+                        <img class="media-object" src="http://placehold.it/128x128/">
+                    </a>
+                    <div class="media-body">
+                        <h3 class="media-heading name">
+                            {{ member.last_name }}, {{ member.first_name }}
+                        </h3>
+
+                        {% if member.homephone %}
+                        <p class="homephone">(Home) {{ member.homephone }}</p>
+                        {% endif %}
+
+                        {% if member.cellphone %}
+                        <p class="cellphone">(Cell) {{ member.cellphone }}</p>
+                        {% endif %}
+
+                        {% if member.email %}
+                        <p class="email"><a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
+                        {% endif %}
+
+                        {% if member.hobbies %}
+                        <p class="hobbies"><span class="glyphicon glyphicon-heart"></span> {{ member.hobbies }}</p>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 </div>
 
     {% endblock content %}

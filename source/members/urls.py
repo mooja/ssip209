@@ -6,7 +6,7 @@ urlpatterns = patterns('',
     # URL pattern for the UserListView  # noqa
     url(
         regex=r'^$',
-        view=views.MemberListView.as_view(),
+        view=views.member_list,
         name='member-list'
     ),
     url(

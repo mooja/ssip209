@@ -299,3 +299,4 @@ class Common(Configuration):
     # END LOGGING CONFIGURATION
 
     # Your common stuff: Below this line define 3rd party libary settings
+    MEMBERS_PASSWORD = values.SecretValue(environ_prefix='')
