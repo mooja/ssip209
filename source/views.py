@@ -10,12 +10,15 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         eastern_tz = timezone('US/Eastern')
-        upper_bound = datetime.now(tz=eastern_tz) + timedelta(weeks=1)
+        now = datetime.now(tz=eastern_tz)
+
+        upper_bound = datetime.now(tz=eastern_tz) + timedelta(weeks=4)
         lower_bound = datetime.now(tz=eastern_tz) - timedelta(days=0)
         upcoming_occurrence_list = Occurrence.objects.all(
                 ).filter(start_time__gte=lower_bound
-                ).filter(start_time__lte=upper_bound)
-        now = datetime.now(tz=eastern_tz)
+                ).filter(start_time__lte=upper_bound
+                ).exclude(event__event_type__abbr='week',
+                          start_time__gte=(now + timedelta(weeks=1)))
 
         context = super(TemplateView, self).get_context_data(**kwargs)
         context['news_entry_list'] = NewsEntry.objects.all()

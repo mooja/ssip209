@@ -1,15 +1,6 @@
 {% extends "base.html" %}
 {% block splash %}
-<div class="splash">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10">
-                <h1>About Us</h1>
-                <p class="lead"></p>
-            </div>
-        </div>
-    </div>
-</div><!-- /container -->
+    <h1>About Us</h1>
 {% endblock %}
 {% block content %}
 <div class="container">
@@ -53,6 +44,10 @@
             
             <p id="about-join-us"><strong>Join us! We are building community!</strong></p>
         </div>
+
+        <!-- Add the extra clearfix for only the required viewport -->
+        <div class="clearfix visible-xs-block"></div>
+
         <div class="col-md-4">
             <div class="well">
                 <ul class="nav">
