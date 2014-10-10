@@ -66,12 +66,11 @@ footer {
 /* isotope */
 
 .member-data {
-    padding: 0.5rem;
+    padding: 0.3rem;
 }
 
 .member-data p {
     margin: 0;
-    margin-left: 1em;
     line-height: 1.6em;
 }
 
@@ -83,3 +82,4 @@ footer {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
+
