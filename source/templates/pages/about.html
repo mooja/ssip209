@@ -5,7 +5,22 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-md-6 home-news">
+        <div class="col-md-4 col-md-push-6">
+                <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul>
+                        <li><a href="#about-overview">Overview</a></li>
+                        <li><a href="#about-who-are-we">Who are we?</a></li>
+                        <li><a href="#about-what-can-you-do">What can you do?</a></li>
+                        <li><a href="#about-how-can-we-help">How can we help?</a></li>
+                        <li><a href="#about-where-do-we-meet">Where do we meet?</a></li>
+                        <li><a href="#about-who-is-eligible">Who is eligible?</a></li>
+                        <li><a href="#about-how-much-is-membership">How much is membership?</a></li>
+                    </ul>
+                </div>
+                </div>
+        </div>
+        <div class="col-md-6 col-md-pull-4">
             <h1 id="about-overview">Overview</h1>
             <p> Formed in the Spring of 2011, a group of neighbors gathered people from the 209 corridor (south of Kingston, NY) to discuss how they might help one another remain independent, strengthen their communities, and stay in their own homes. Our group relies on the volunteers--neighbor helping neighbor. We have nurses, business people, artists, homemakers, computer specialists, doctors, lawyers, educators--people with all kinds of skills.</p>
 
@@ -48,20 +63,6 @@
         <!-- Add the extra clearfix for only the required viewport -->
         <div class="clearfix visible-xs-block"></div>
 
-        <div class="col-md-4">
-            <div class="well">
-                <ul class="nav">
-                    <li><a href="#about-overview">Overview</a></li>
-                    <li><a href="#about-who-are-we">Who are we?</a></li>
-                    <li><a href="#about-what-can-you-do">What can you do?</a></li>
-                    <li><a href="#about-how-can-we-help">How can we help?</a></li>
-                    <li><a href="#about-where-do-we-meet">Where do we meet?</a></li>
-                    <li><a href="#about-who-is-eligible">Who is eligible?</a></li>
-                    <li><a href="#about-how-much-is-membership">How much is membership?</a></li>
-                </ul>
-            </div>
-            {% include "sidebar.html" %}
-        </div>
     </div>
 </div><!-- /container -->
 {% endblock %}
