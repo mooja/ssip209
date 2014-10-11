@@ -49,28 +49,19 @@
             <li><a href="{% url 'about' %}">About SSIP</a></li>
             <li><a href="{% url 'members:member-list' %}">Members</a></li>
             <li><a href="#Newsletter">Newsletter</a></li>
-            <li><a href="#Newsletter">Getting Involved</a></li>
-            <li><a href="#Newsletter">Login</a></li>
         </ul>
+        {% if request.user.is_authenticated %}
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                {% if request.user.is_authenticated %}
+                <li><a href="/admin/">Admin</a></li>
                 <li><a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
                 <li><a href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
-                {% else %}
-                <!-- <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li> -->
-                <!-- <li><a href="{% url 'account_login' %}">{% trans "Log In" %}</a></li> -->
-                {% endif %}
-                <li><a href="#">Logout</a></li>
-                <li><a href="#">Edit Events</a></li>
-                <li><a href="#">Edit Pages</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
             </ul>
             </li>
         </ul>
+        {% endif %}
     </div>
 </div>
 </navigation>

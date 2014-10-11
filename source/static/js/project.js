@@ -1,11 +1,6 @@
 /* Project specific Javascript goes here. */
 
 $(document).ready(function () {
-    var hobbies = $(".hobbies");
-    var canhelp = $(".canhelp");
-
-    var hobbies_button = $("#hobbies-toggle");
-    var canhelp_button = $("#canhelp-toggle");
 
     $container = $("#members");
 

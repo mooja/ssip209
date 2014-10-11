@@ -15,7 +15,7 @@
                             {{ oc.event.title }}
                         </h4>
                         <p>{{ oc.start_time|date:"l"}} at {{ oc.start_time|date:"f a" }}</p>
-                        <p><a href="{% url 'events:occurrence-detail' oc.event.id oc.id %}"class="text-info"><span class="glyphicon glyphicon-info-sign"></span> Directions</a></p>
+                        <p><a href="{% url 'events:occurrence-detail' oc.event.id oc.id %}"class="text-info"><span class="glyphicon glyphicon-info-sign"></span> Information</a></p>
                     </div>
                 </div>
                 {% endfor %}
