@@ -15,28 +15,22 @@
     <div class="row">
         <div class="col-md-10 data-filters">
             <div class="well">
+                <form>
                 <div class="form-group">
-                    <input id="search_by_name" class="form-control" placeholder="Search By Name" type="text"/>
+                    <input id="search-name" class="form-control" placeholder="Search By Name" type="text"/>
                 </div>
-                <p>
-                <button id="hobbies-toggle"  class="btn btn-success btn-sm"> Hobbies </button>
-                <button id="canhelp-toggle"  class="btn btn-success btn-sm"> I Can Help With </button>
-                </p>
+                </form>
             </div>
         </div>
     </div>
     <div class="row" id="members">
         {% for member in member_list %}
-        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 panel panel-sm member-data">
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 member-data">
             <div class="basic-data">
                 <img class="pull-left" src="http://placehold.it/128x128/">
                 <h3 class="media-heading name">
                     {{ member.last_name }}, {{ member.first_name }}
                 </h3>
-
-                {% if member.town %}
-                <p> {{ member.town }}</p>
-                {% endif %}
 
                 {% if member.homephone %}
                 <p class="homephone">(Home) {{ member.homephone }}</p>
@@ -50,24 +44,27 @@
                 <p class="email"><a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
                 {% endif %}
             </div>
-            <div class="detail-data clearfix hidden">
+            <div class="detail-data hidden">
+                {% if member.address or member.town %}
+                <p class="address">{{ member.address }}
+                    {% if member.town %}, {{ member.town }} NY {% endif %}
+                </p>
+                {% endif %}
+
                 {% if member.hobbies %}
-                <p class="hobbies"> My <strong>Hobbies</strong>: {{ member.hobbies }}</p>
+                <p class="hobbies"><strong>My Hobbies</strong>: {{ member.hobbies }}</p>
                 {% endif %}
 
                 {% if member.canhelp %}
-                <p class="canhelp">I <strong>can help</strong> with: {{ member.canhelp }}</p>
+                <p class="canhelp"><strong>I can help with</strong>: {{ member.canhelp }}</p>
                 {% endif %}
 
                 {% if member.needhelp %}
-                <p class="needhelp">I <strong>could use help</strong> with: {{ member.needhelp }}</p>
+                <p class="needhelp"><strong>I could use help with</strong>: {{ member.needhelp }}</p>
                 {% endif %}
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
-
-<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
-
 {% endblock content %}

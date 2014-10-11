@@ -9,21 +9,22 @@ $(document).ready(function () {
         itemSelector: ".member-data",
     });
 
-    hobbies_button.click(function () {
-        hobbies_button.toggleClass('btn-success');
-        hobbies.toggleClass("hidden");
-        $container.isotope('layout');
-    });
+    function filter_by_name() {
+        $container.isotope({
+            filter: function () {
+                var re = new RegExp($("#search-name").val(), "ig");
+                var name = $(this).find('.name').text().trim();
+                return name.match(re);
+        }});
+    }
 
-    canhelp_button.click(function () {
-        canhelp_button.toggleClass('btn-success');
-        canhelp.toggleClass("hidden");
-        $container.isotope('layout');
-    });
-
+    // show details on hover
     $(".member-data").hover(function () {
-        $(this).toggleClass("bg-warning");
+        $(this).toggleClass("well");
         $(this).find(".detail-data").toggleClass("hidden");
         $container.isotope('layout');
     });
+
+    $("#search-name").keydown(filter_by_name);
+
 });
