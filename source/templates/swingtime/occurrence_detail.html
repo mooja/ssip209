@@ -3,46 +3,66 @@
 {% block title %}{{ occurrence.title}}{% endblock %}
 
 {% block splash %}
-
 <h1>
     {{ occurrence.title }}<br>
 </h1>
-
 {% endblock %}
 
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
-            <dl>
-                <dt class="h3">{{ occurrence.event.description }}</dt>
-                <dt>Date:</dt>
-                <dd>
-                {% with occurrence.start_time as st  %}
-                {{ st|date:"l, F jS P" }}
-                {% endwith %}
-                </dd>
-                <dt>Information</dt>
-                <dd>
-                {% with occurrence.event.notes.all as notes %}
-                {% if notes %}
-                {% for note in notes %}
-                {{ note|safe }}
-                {% endfor %}
-            </ul>
-            {% else %}None
-            {% endif %}
-            {% endwith %}
-            </dd>
-        </dl>
-    </div>
-</div>
-</div>
-    <div class="row">
-        <div class="col-md-10"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-10"></div>
+        <div class="col-md-3 col-md-push-7">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    When
+                </div>
+                <div class="panel-body">
+                    {% with occurrence.start_time as st  %}
+                    {{ st|date:"l, F jS P" }}
+                    {% endwith %}
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Location
+                </div>
+                <div class="panel-body">
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Organiser
+                </div>
+                <div class="panel-body">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7 col-md-pull-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Event Description
+                </div>
+                <div class="panel-body">
+                    {{ occurrence.event.description }}
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Event Details
+                </div>
+                <div class="panel-body">
+                    <p>
+                    {% with occurrence.event.notes.all as notes %}
+                    {% if notes %}
+                    {% for note in notes %}
+                    {{ note|safe }}
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
