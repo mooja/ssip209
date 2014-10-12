@@ -14,6 +14,7 @@
       venv_root: "{{ site_root }}/virtualenv"
       python_path: "{{ venv_root }}/bin/python"
       static_root: "{{ site_root }}/staticfiles"
+      media_root: "{{ site_root }}/source/media"
       envdir_root: "{{ site_root }}/envdirs"
       manage_command: "{{ venv_root }}/bin/envdir {{ site_root }}/envdirs/production {{ python_path }} {{ site_root }}/source/manage.py"
 
