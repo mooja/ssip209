@@ -14,7 +14,12 @@
                             {% endif %}
                             {{ oc.event.title }}
                         </h4>
-                        <p>{{ oc.start_time|date:"l"}} at {{ oc.start_time|date:"f a" }}</p>
+                        <p>
+                          {{ oc.start_time|date:"l"}} at {{ oc.start_time|date:"f a" }}
+                          {% if oc.event_type.abbr == 'week' %} (Weekly) 
+                          {% elif  oc.event_type.abbr == 'mtly' %} (Monthly)
+                          {% endif %}
+                        </p>
                         <p><a href="{% url 'events:occurrence-detail' oc.event.id oc.id %}"class="text-info"><span class="glyphicon glyphicon-info-sign"></span> Information</a></p>
                     </div>
                 </div>
