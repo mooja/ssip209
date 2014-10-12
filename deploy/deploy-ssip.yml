@@ -125,7 +125,34 @@
         - reload gunicorn
 
 
+    # make a virtual hosts that returns 444 by default
+
+    - name: Create a No-Default virtual host
+      sudo_user: root
+      template: src=nginx-nodefault.conf.j2 dest=/etc/nginx/sites-available/no-default
+      notify:
+        - reload nginx
+        - reload gunicorn
+
+
+    - name: Link no-default in /etc/nginx/sites-enabled
+      sudo_user: root
+      file: state=link dest=/etc/nginx/sites-enabled/no-default src=/etc/nginx/sites-available/no-default
+      notify:
+        - reload nginx
+        - reload gunicorn
+
+
+    - name: Remove nginx default configuration 
+      sudo_user: root
+      file: state=absent dest=/etc/nginx/sites-enabled/default
+      notify:
+        - reload nginx
+        - reload gunicorn
+
+
     # UPSTART
+    # TODO: make a systemd script
 
     - name: Create an Upstart file for {{ vhost }}
       sudo_user: root
