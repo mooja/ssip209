@@ -36,6 +36,10 @@
     text-align: justify;
 }
 
+.home-news img {
+    margin: 0.5em;
+}
+
 .home-events h2 {
     margin-top: 0;
     margin-bottom: 0.5em;
