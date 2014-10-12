@@ -25,6 +25,6 @@ $(document).ready(function () {
         $container.isotope('layout');
     });
 
-    $("#search-name").keydown(filter_by_name);
+    $("#search-name").keyup(filter_by_name);
 
 });
