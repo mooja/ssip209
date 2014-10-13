@@ -1,5 +1,20 @@
+# listen on www.{{ vhost }} and redirect to non-www host
+
+server {
+    # don't forget to tell on which port this server listens
+    listen [::]:80;
+    listen 80;
+
+    # listen on the www host
+    server_name www.{{ vhost }};
+
+    # and redirect to the non-www host (declared below)
+    return 301 $scheme://{{ vhost }}$request_uri;
+}
+
 server {
     listen 80;
+    listen [::]:80;
     server_name {{ vhost }};
     access_log /var/log/nginx/{{ vhost }}.log;
     keepalive_timeout 5;
