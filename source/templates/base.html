@@ -105,20 +105,15 @@
 <!-- Latest JQuery -->
 <!-- <script src="{% static 'js/jquery.min.js' %}"></script> -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-<!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-<!-- Your stuff: Third-party javascript libraries go here -->
-<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
-
-<!-- place project specific Javascript in this file -->
 <script src="{% static 'js/project.js' %}"></script>
 
 {% endblock javascript %}
 
 {% block javascript_extra %}
-<!-- page specific javascript goes here
+<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+
 {% endblock javascript_extra %}
 
 {% include "footer.html" %}
