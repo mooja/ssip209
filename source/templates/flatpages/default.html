@@ -1,15 +1,9 @@
-{% extends "base.html" %}
+{% extends "base_sidebar.html" %}
 
-{% block spash %}
+{% block splash %}
     <h1>{{ flatpage.title }}</h1>
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-10">
             {{ flatpage.content }}
-        </div>
-    </div>
-</div>
 {% endblock %}

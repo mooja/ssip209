@@ -44,6 +44,7 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'about' %}">About SSIP</a></li>
             <li><a href="{% url 'members:member-list' %}">Members</a></li>
+            <li><a href="/pages/services/">Service Providers</a></li>
             <li><a href="#Newsletter">Newsletter</a></li>
         </ul>
         {% if request.user.is_authenticated %}
@@ -86,11 +87,15 @@
 </div><!-- /container -->
 {% endblock %}
 
-{% block content %}
+{% block content_wrapper %}
+
 <div class="container">
-    <p>Use this document as a way to quick start any new project.</p>
+    {% block content %}
+        <p>Use this document as a way to quick start any new project.</p>
+    {% endblock content %}
 </div><!-- /container -->
-{% endblock content %}
+
+{% endblock content_wrapper %}
 
 {% block modal %}{% endblock modal %}
 

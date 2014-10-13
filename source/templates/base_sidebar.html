@@ -1,102 +1,8 @@
-<!DOCTYPE html>
-{% load staticfiles i18n %}
-<html lang="en" ng-app>
-<head>
-<meta charset="utf-8">
-<title>{% block title %}Settled and Serving in Place{% endblock title %}</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
+{% extends "base.html" %}
 
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+{% load staticfiles %}
 
-{% block css %}
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-
-<!-- Optional theme -->
-<!-- Your stuff: Third-party css libraries go here -->
-
-<!-- This file store project specific CSS -->
-<link href="{% static 'css/project.css' %}" rel="stylesheet">
-{% endblock %}
-
-{% block extra_css %}
-{% endblock %}
-
-{% block angular %}
-<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script> -->
-{% endblock %}
-
-</head>
-<body>
-{% block nav %}
-<navigation>
-<div class="navbar navbar-default navbar-fixed-top">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-tree-deciduous"></span> SSIP 209</a>
-    </div>
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
-        <ul class="nav navbar-nav">
-            <li><a href="{% url 'home' %}"> Home</a></li>
-            <li><a href="{% url 'about' %}">About SSIP</a></li>
-            <li><a href="{% url 'members:member-list' %}">Members</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                {% if request.user.is_authenticated %}
-                <li><a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
-                <li><a href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
-                {% else %}
-                <!-- <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li> -->
-                <!-- <li><a href="{% url 'account_login' %}">{% trans "Log In" %}</a></li> -->
-                {% endif %}
-                <li><a href="#">Logout</a></li>
-                <li><a href="#">Edit Events</a></li>
-                <li><a href="#">Edit Pages</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-            </ul>
-            </li>
-        </ul>
-    </div>
-</div>
-</navigation>
-{% endblock %}
-
-{% block splash %}
-<div class="splash">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10">
-                <h1>SSIP 209</h1>
-                <p class="lead"> Settled and Serving in Place </p>
-            </div>
-        </div>
-    </div>
-</div><!-- /container -->
-{% endblock %}
-
-{% block msg %}
-<div class="container">
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
-    {% endfor %}
-    {% endif %}
-</div><!-- /container -->
-{% endblock %}
-
+{% block content_wrapper %}
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -111,6 +17,8 @@
         </div>
     </div>
 </div><!-- /container -->
+
+{% endblock content_wrapper %}
 
 {% block modal %}{% endblock modal %}
 
