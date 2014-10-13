@@ -1,21 +1,12 @@
-{% extends "base.html" %}
+{% extends "base_sidebar.html" %}
 {% load tz %}
 
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 home-news">
-            <h1><b>Recent News</b></h1>
-            {% for news_entry in news_entry_list %}
-            <h2>{{ news_entry.title }}<small> {{ news_entry.pub_date|date:"F jS, Y" }}</small></h2>
-            {{ news_entry.text|safe }}
-            {% endfor %}
-        </div>
-        <div class="col-md-4">
-            {% include "sidebar.html" %}
-        </div>
-    </div>
-</div><!-- /container -->
+<h1><b>Recent News</b></h1>
+{% for news_entry in news_entry_list %}
+<h2>{{ news_entry.title }}<small> {{ news_entry.pub_date|date:"F jS, Y" }}</small></h2>
+{{ news_entry.text|safe }}
+{% endfor %}
 
 {% endblock %}
