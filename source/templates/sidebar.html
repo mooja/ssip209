@@ -1,5 +1,5 @@
             {% if upcoming_occurrence_list %}
-            <div class="well home-events">
+            <div class="home-events">
                 <h2><b>Upcoming Events</b></h2>
                 {% for oc in upcoming_occurrence_list %}
                 {% ifchanged %}<h3 class="events-month">{{ oc.start_time|date:"F" }}</h3>{% endifchanged %}

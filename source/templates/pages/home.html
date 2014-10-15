@@ -3,10 +3,14 @@
 
 {% block content %}
 
-<h1><b>Recent News</b></h1>
-{% for news_entry in news_entry_list %}
-<h2>{{ news_entry.title }}<small> {{ news_entry.pub_date|date:"F jS, Y" }}</small></h2>
-{{ news_entry.text|safe }}
-{% endfor %}
+    <h1><b>Recent News</b></h1>
+
+    {% for news_entry in news_entry_list %}
+
+        <h2>{{ news_entry.title }}<small> {{ news_entry.pub_date|date:"F jS, Y" }}</small></h2>
+
+        {{ news_entry.text|safe }}
+
+    {% endfor %}
 
 {% endblock %}

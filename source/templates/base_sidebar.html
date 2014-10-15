@@ -7,11 +7,20 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-push-7">
-            {% block sidebar %}
-            {{ sidebar_html|safe }}
-            {% endblock %}
+            <div class="well well-sm">
+                {% block sidebar_top %}
+                {% endblock sidebar_top %}
+
+                {% block sidebar %}
+                {{ sidebar_html|safe }}
+                {% endblock sidebar %}
+
+                {% block sidebar_bottom %}
+                {% endblock sidebar_bottom %}
+            </div>
         </div>
         <div class="col-md-7 col-md-pull-4">
+            
             {% block content %}
                 your project information goes here
             {% endblock %}
@@ -22,28 +31,3 @@
 {% endblock content_wrapper %}
 
 {% block modal %}{% endblock modal %}
-
-<!-- Le javascript
-    ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-{% block javascript %}
-<!-- Latest JQuery -->
-<script src="{% static 'js/jquery.min.js' %}"></script>
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-<!-- Your stuff: Third-party javascript libraries go here -->
-<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
-
-
-<!-- place project specific Javascript in this file -->
-<script src="{% static 'js/project.js' %}"></script>
-{% endblock javascript %}
-
-{% include "footer.html" %}
-
-</body>
-</html>
-
