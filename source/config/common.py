@@ -32,6 +32,9 @@ class Common(Configuration):
         'django.contrib.staticfiles',
         'django.contrib.flatpages',
 
+        # sitemaps
+        'django.contrib.sitemaps',
+
         # Useful template tags:
         # 'django.contrib.humanize',
 
@@ -176,6 +179,7 @@ class Common(Configuration):
 
     TEMPLATE_LOADERS = (
         'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
         'django.template.loaders.app_directories.Loader',
     )
 

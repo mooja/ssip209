@@ -1,20 +1,28 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
+from django.contrib.sitemaps.views import sitemap
 from views import HomeView
+from sitemaps import StaticSitemap, NewsSitemap, EventsSitemap
 
-# Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
+sitemaps = {'static': StaticSitemap,
+            'news': NewsSitemap,
+            'events': EventsSitemap}
+
 urlpatterns = patterns('',
-    url(r'^$',  # noqa
+    url(r'^$',
         HomeView.as_view(template_name='pages/home.html'),
         name="home"),
+
+    # sitemap
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
+        name='django.contrib.sitemaps.views.sitemap'),
 
     url(r'^about/$',
         TemplateView.as_view(template_name='pages/about.html'),
