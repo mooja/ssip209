@@ -66,7 +66,6 @@ class Common(Configuration):
     # MIDDLEWARE CONFIGURATION
     MIDDLEWARE_CLASSES = (
         # Make sure djangosecure.middleware.SecurityMiddleware is listed first
-        'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
         'djangosecure.middleware.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
