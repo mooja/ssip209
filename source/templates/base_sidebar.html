@@ -3,20 +3,21 @@
 {% load staticfiles %}
 
 {% block content_wrapper %}
+<!-- content container -->
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            {% block content %}
-                your project information goes here
-            {% endblock %}
-        </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-md-push-7">
             {% block sidebar %}
             {{ sidebar_html|safe }}
             {% endblock %}
         </div>
+        <div class="col-md-7 col-md-pull-4">
+            {% block content %}
+                your project information goes here
+            {% endblock %}
+        </div>
     </div>
-</div><!-- /container -->
+</div><!-- /content container -->
 
 {% endblock content_wrapper %}
 
