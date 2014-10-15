@@ -20,7 +20,7 @@
                           {% elif  oc.event_type.abbr == 'mtly' %} (Monthly)
                           {% endif %}
                         </p>
-                        <p><a href="{% url 'events:occurrence-detail' oc.event.id oc.id %}"class="text-info"><span class="glyphicon glyphicon-info-sign"></span> Information</a></p>
+                        <p><a href="{% url 'events:occurrence-detail' oc.event.id oc.id %}" class="text-info"><span class="glyphicon glyphicon-info-sign"></span> Information</a></p>
                     </div>
                 </div>
                 {% endfor %}

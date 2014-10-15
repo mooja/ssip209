@@ -1,5 +1,5 @@
 {% load staticfiles i18n %}<!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>{% block title %}Settled and Serving in Place{% endblock title %}</title>
@@ -29,7 +29,6 @@
 </head>
 <body>
 {% block nav %}
-<navigation>
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -61,7 +60,6 @@
         {% endif %}
     </div>
 </div>
-</navigation>
 {% endblock %}
 
 <div class="splash">
