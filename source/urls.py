@@ -24,12 +24,14 @@ urlpatterns = patterns('',
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap'),
 
+    # about page
     url(r'^about/$',
         TemplateView.as_view(template_name='pages/about.html'),
         name="about"),
 
     # flat pages
-    url(r'^pages/', include('django.contrib.flatpages.urls')),
+    # url(r'^pages/', include('django.contrib.flatpages.urls')),
+    url(r'^pages/', include('pages.urls', namespace='pages')),
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),

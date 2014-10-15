@@ -4,7 +4,7 @@ from autoslug import AutoSlugField
 
 
 class NewsEntry(models.Model):
-
+    """ A very simple news entry model """
     title = models.CharField(max_length=200)
     slug = AutoSlugField(populate_from='title', max_length=200, unique=True)
     pub_date = models.DateTimeField('date published')
