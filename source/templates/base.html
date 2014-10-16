@@ -44,7 +44,7 @@
             <li><a href="{% url 'pages:page-detail' "about" %}">About SSIP</a></li>
             <li><a href="{% url 'members:member-list' %}">Members</a></li>
             <li><a href="{% url 'pages:page-detail' "services" %}">Service Providers</a></li>
-            <!-- <li><a href="{% url 'pages:page-detail' "newsletter" %}">Newsletter</a></li> -->
+            <li><a href="{% url 'pages:page-detail' "newsletter" %}">Newsletter</a></li>
         </ul>
         {% if request.user.is_authenticated %}
         <ul class="nav navbar-nav navbar-right">
