@@ -40,7 +40,12 @@
     margin-bottom: 4em;
 }
 
+.home-events {
+    padding-left: 1em;
+}
+
 .home-events h2 {
+    text-align: center;
     margin-top: 0;
     margin-bottom: 0.5em;
 }
