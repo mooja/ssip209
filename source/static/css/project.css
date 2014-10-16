@@ -23,21 +23,21 @@
 }
 
 .home-news h1 {
-    margin-top: 0.5em;
-    margin-bottom: 1em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
 }
 
-.home-news h2 {
-    margin-top: 1.5em;
-}
 
 .home-news p {
-    margin-top: 1.2em;
     text-align: justify;
 }
 
 .home-news img {
-    margin: 0.5em;
+    margin-left: 1em;
+}
+
+.home-news-entry {
+    margin-bottom: 4em;
 }
 
 .home-events h2 {
