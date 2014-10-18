@@ -4,8 +4,9 @@ from django.shortcuts import render_to_response
 from datetime import datetime, timedelta
 from pytz import timezone
 
-from news.models import NewsEntry
 from swingtime.models import Occurrence
+from news.models import NewsEntry
+from events.models import SSIPOccurrence
 
 
 def upcoming_events_query():
@@ -33,6 +34,7 @@ def render_sidebar_html(template="sidebar.html"):
     context['now'] = now
 
     return render_to_response(template, context).content
+
 
 class HomeView(TemplateView):
 

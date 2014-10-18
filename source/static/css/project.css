@@ -1,3 +1,7 @@
+/*********************************************************************
+ *                              general                              *
+ *********************************************************************/
+
 .splash {
     padding-top: 80px;
     padding-bottom: 40px;
@@ -15,6 +19,20 @@
     letter-spacing: -2px;
     font-size: 60px;
 }
+
+footer {
+    margin-top: 2em;
+}
+
+
+/*********************************************************************
+ *                             homepage begin                        *
+ *********************************************************************/
+
+/**********
+ *  news  *
+ **********/
+
 
 .home-announcements {
     background-color: #93C54B;
@@ -37,7 +55,17 @@
 }
 
 .home-news img {
-    margin: 0.5em;
+    margin: 1em;
+}
+
+/************
+ *  events  *
+ ************/
+
+.home-events {
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-bottom: 1em;
 }
 
 .home-events h2 {
@@ -50,26 +78,29 @@
     margin-bottom: 0px;
 }
 
+.home-events p {
+    margin-left: 1.5em;
+}
+
+
 .home-events .h3 {
     letter-spacing: -3px;
     font-weight: 100;
     margin-top: 0;
 }
 
-.events-month {
-    letter-spacing: -1px;
-    font-size: 28px;
-    font-weight: 200;
-}
 
-/* about page *****************************************/
+/*********************************************************************
+ *                         about page begin                          *
+ *********************************************************************/
 
 
-/* end about page *************************************/
 
-footer {
-    margin-top: 2em;
-}
+
+/*********************************************************************
+ *                         member data begin                         *
+ *********************************************************************/
+
 
 /* isotope */
 
@@ -90,4 +121,3 @@ footer {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
-

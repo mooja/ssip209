@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}{{ loc.title}}{% endblock %}
+
+{% block splash %}
+<h1>
+    {{ loc.title }}<br>
+</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Description
+                </div>
+                <div class="panel-body">
+                    {{ loc.description|safe }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Address
+                </div>
+                <div class="panel-body">
+                    {{ loc.address|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-push-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Directions
+                </div>
+                <div class="panel-body">
+                    {{ loc.directions.safe }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-pull-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Map
+                </div>
+                <div class="panel-body">
+                    <center>
+                        {{ loc.maphtml|safe }}
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

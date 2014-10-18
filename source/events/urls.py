@@ -45,8 +45,18 @@ urlpatterns = patterns('',
     # ),
     
     url(
-        r'^occurrence/(\d+)/(\d+)/$', 
-        views.occurrence_view, 
+        r'^occurrence/(\d+)/(\d+)/$',
+        views.occurrence_view,
         name='occurrence-detail'
+    ),
+    url(
+        r'^occ/(?P<pk>\d+)/(?P<event_pk>\d+)/$',
+        views.SSIPOccurrenceDetailView.as_view(),
+        name='ssipoccurrence-detail'
+    ),
+    url(
+        r'^location/(?P<slug>[\w-]+)/$',
+        views.LocationDetailView.as_view(),
+        name='location-detail'
     ),
 )
