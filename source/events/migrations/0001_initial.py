@@ -8,7 +8,7 @@ import autoslug.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('swingtime', '0001_initial'),
+        ('events', 'swingtime_0001_initial'),
     ]
 
     operations = [
