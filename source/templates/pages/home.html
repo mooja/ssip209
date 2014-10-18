@@ -2,15 +2,15 @@
 {% load tz %}
 
 {% block content %}
+    <div class="home-news">
+        <h1><b>Recent News</b></h1>
 
-    <h1><b>News</b></h1>
+        {% for news_entry in news_entry_list %}
+            <div class="home-news-entry">
+                <h2>{{ news_entry.title }} <span class="text-muted h5">Added on {{ news_entry.pub_date|date:"F jS, Y" }}</span></h2>
+                {{ news_entry.text|safe }}
+            </div>
+        {% endfor %}
 
-    {% for news_entry in news_entry_list %}
-
-        <h2>{{ news_entry.title }}<small> {{ news_entry.pub_date|date:"F jS, Y" }}</small></h2>
-
-        {{ news_entry.text|safe }}
-
-    {% endfor %}
-
+    </div>
 {% endblock %}

@@ -41,16 +41,12 @@ footer {
 }
 
 .home-news h1 {
-    margin-top: 0.5em;
-    margin-bottom: 1em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
 }
 
-.home-news h2 {
-    margin-top: 1.5em;
-}
 
 .home-news p {
-    margin-top: 1.2em;
     text-align: justify;
 }
 
@@ -69,6 +65,7 @@ footer {
 }
 
 .home-events h2 {
+    text-align: center;
     margin-top: 0;
     margin-bottom: 0.5em;
 }
