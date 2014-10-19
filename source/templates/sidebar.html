@@ -21,10 +21,8 @@
                         <p>
                           {{ oc.start_time|date:"l, F jS \a\t f a"}} 
                         </p>
-                        <p><a href="{% url 'events:occurrence-detail' oc.event.id oc.id %}" class="text-info"><span class="glyphicon glyphicon-info-sign"></span> Event Information</a></p>
-                        {% comment %}
+                        <p><a href="{% url 'events:ssipoccurrence-detail' oc.id oc.event.id%}" class="text-info"><span class="glyphicon glyphicon-info-sign"></span> Event Information</a></p>
                         <p><a href="{% url 'events:location-detail' oc.location.slug %}"><span class="glyphicon glyphicon-globe"></span> {{ oc.location.title }} (Directions)</a></p>
-                        {% endcomment %}
                     </div>
                 </div>
                 {% endfor %}

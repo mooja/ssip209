@@ -46,7 +46,7 @@
                 </div>
                 <div class="panel-body">
                     <p class="lead text-center">{{ occurrence.location.title }}</p>
-                    <p class="text-justify">{{ occurrence.location.description|safe }}</p>
+                    <p class="text-justify">{{ occurrence.location.title }}</p>
                     <p class="primary lead text-center"><a href="{% url 'events:location-detail' occurrence.location.slug %}"> Maps and Directions</a></p>
                 </div>
             </div>

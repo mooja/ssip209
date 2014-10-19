@@ -15,7 +15,7 @@ def upcoming_events_query():
 
     upper_bound = now + timedelta(weeks=4)
     lower_bound = now - timedelta(days=0)
-    upcoming_occurrence_list = Occurrence.objects.all(
+    upcoming_occurrence_list = SSIPOccurrence.objects.all(
             ).filter(start_time__gte=lower_bound
             ).filter(start_time__lte=upper_bound
             ).exclude(event__event_type__abbr='week',
