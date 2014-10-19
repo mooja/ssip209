@@ -1,5 +1,5 @@
             {% if upcoming_occurrence_list %}
-            <div class="home-events">
+            <div class="well well-sm home-events">
                 <h2 class="text-center"><b><span class="glyphicon glyphicon-calendar"></span> Upcoming Events</b></h2>
                 {% for oc in upcoming_occurrence_list %}
                 <div class="media">
@@ -26,5 +26,10 @@
                     </div>
                 </div>
                 {% endfor %}
+            </div>
+            <div class="well well-sm text-center">
+                <h4>Do you have an Announcement? A Comment? Website Suggestion?</h4>
+                <p class="lead"> We'd love to hear it! </p>
+                <p><a href="mailto:max.ssip@gmail.com" class="btn btn-info">Email MAX.SSIP@GMAIL.COM</a></p>
             </div>
             {% endif %}
