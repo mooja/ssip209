@@ -5,7 +5,7 @@ from swingtime.models import Event, Occurrence
 
 
 class SSIPEvent(Event):
-    organizer = models.TextField(null=True, blank=True)
+    details = models.TextField(null=True, blank=True)
     default_location = models.ForeignKey('Location', null=True)
 
     def __str__(self):
