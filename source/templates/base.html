@@ -23,7 +23,6 @@
 {% endblock %}
 
 {% block angular %}
-<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script> -->
 {% endblock %}
 
 </head>
@@ -86,32 +85,37 @@
 {% endblock %}
 
 {% block content_wrapper %}
-
-<div class="container">
-    {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
-    {% endblock content %}
-</div><!-- /container -->
-
+    <div class="container">
+        {% block content %}
+            <p>No Data</p>
+        {% endblock content %}
+    </div><!-- /container -->
 {% endblock content_wrapper %}
 
 {% block modal %}{% endblock modal %}
 
-<!-- Le javascript ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-{% block javascript %}
-<!-- Latest JQuery -->
-<!-- <script src="{% static 'js/jquery.min.js' %}"></script> -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-<script src="{% static 'js/project.js' %}"></script>
+{% block javascript %}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/project.js' %}"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-55818610-1', 'auto');
+      ga('send', 'pageview');
+    </script>
 
 {% endblock javascript %}
 
-{% block javascript_extra %}
-<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
 
+{% block javascript_extra %}
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
 {% endblock javascript_extra %}
 
 {% include "footer.html" %}
