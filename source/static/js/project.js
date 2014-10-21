@@ -19,9 +19,14 @@ $(document).ready(function () {
     }
 
     // show details on hover
-    $(".member-data").hover(function () {
-        $(this).toggleClass("well");
-        $(this).find(".detail-data").toggleClass("hidden");
+    // $(".member-data").hover(function () {
+    //     $(this).toggleClass("well");
+    //     $(this).find(".detail-data").toggleClass("hidden");
+    //     $container.isotope('layout');
+    // });
+
+    $("#show-details").change(function () {
+        $(".detail-data").toggleClass("hidden");
         $container.isotope('layout');
     });
 
