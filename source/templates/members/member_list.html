@@ -20,7 +20,7 @@
                     </div>
                     <div class="checkbox">
                         <label>
-                        <input id="show-details" role="checkbox" type="checkbox" checked="checked"> Show Details
+                            <input id="show-details" role="checkbox" type="checkbox" checked="checked"> Show Details
                         </label>
                     </div>
                 </form>
@@ -29,46 +29,46 @@
     </div>
     <div class="row" id="members">
         {% for member in member_list %}
-        <div class="col-md-8 member-data well">
-            <div class="basic-data clearfix">
-                <img class="pull-left" src="http://placehold.it/128x128/">
-                <h3 class="media-heading name" id="{{ member.id }}">
-                    {{ member.last_name }}, {{ member.first_name }}
-                </h3>
+        <div class="col-md-8 col-sm-12 col-xs-12 member-data well">
+                <div class="basic-data">
+                    <img class="pull-left" src="http://placehold.it/128x128/">
+                    <h3 class="media-heading name" id="{{ member.id }}">
+                        {{ member.last_name }}, {{ member.first_name }}
+                    </h3>
 
-                {% if member.address or member.town %}
-                <p class="address">{{ member.address }}
+                    {% if member.address or member.town %}
+                    <p class="address">{{ member.address }}
                     {% if member.town %}, {{ member.town }} NY {% endif %}
-                </p>
-                {% endif %}
+                    </p>
+                    {% endif %}
 
-                {% if member.homephone %}
-                <p class="homephone">(Home) {{ member.homephone }}</p>
-                {% endif %}
+                    {% if member.homephone %}
+                    <p class="homephone">(Home) {{ member.homephone }}</p>
+                    {% endif %}
 
-                {% if member.cellphone %}
-                <p class="cellphone">(Cell) {{ member.cellphone }}</p>
-                {% endif %}
+                    {% if member.cellphone %}
+                    <p class="cellphone">(Cell) {{ member.cellphone }}</p>
+                    {% endif %}
 
-                {% if member.email %}
-                <p class="email"><a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
-                {% endif %}
+                    {% if member.email %}
+                    <p class="email"><a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
+                    {% endif %}
+                </div>
+                <div class="detail-data clearfix">
+
+                    {% if member.hobbies %}
+                    <p class="hobbies"><strong>My Hobbies</strong>: {{ member.hobbies }}</p>
+                    {% endif %}
+
+                    {% if member.canhelp %}
+                    <p class="canhelp"><strong>I can help with</strong>: {{ member.canhelp }}</p>
+                    {% endif %}
+
+                    {% if member.needhelp %}
+                    <p class="needhelp"><strong>I could use help with</strong>: {{ member.needhelp }}</p>
+                    {% endif %}
+                </div>
             </div>
-            <div class="detail-data clearfix">
-
-                {% if member.hobbies %}
-                <p class="hobbies"><strong>My Hobbies</strong>: {{ member.hobbies }}</p>
-                {% endif %}
-
-                {% if member.canhelp %}
-                <p class="canhelp"><strong>I can help with</strong>: {{ member.canhelp }}</p>
-                {% endif %}
-
-                {% if member.needhelp %}
-                <p class="needhelp"><strong>I could use help with</strong>: {{ member.needhelp }}</p>
-                {% endif %}
-            </div>
-        </div>
         {% endfor %}
     </div>
 </div>
