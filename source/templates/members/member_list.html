@@ -11,7 +11,7 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
+    <div class="row hidden-print">
         <div class="col-md-8 data-filters">
             <div class="well">
                 <form role="form">
@@ -30,7 +30,7 @@
     </div>
     <div class="row" id="members">
         {% for member in member_list %}
-        <div class="col-md-8 col-sm-12 col-xs-12 member-data well">
+        <div class="col-md-8 col-sm-12 col-xs-12 member-data well clearfix">
                 <div class="basic-data">
                     <img class="pull-left" src="http://placehold.it/128x128/">
                     <h3 class="media-heading name" id="{{ member.id }}">
@@ -55,7 +55,7 @@
                     <p class="email"><a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
                     {% endif %}
                 </div>
-                <div class="detail-data clearfix">
+                <div class="detail-data">
 
                     {% if member.hobbies %}
                     <p class="hobbies"><strong>My Hobbies</strong>: {{ member.hobbies }}</p>
