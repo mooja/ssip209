@@ -38,3 +38,6 @@ django-swingtime==0.4
 django-extensions
 envdir
 pytz
+
+# reportlab
+reportlab==3.1

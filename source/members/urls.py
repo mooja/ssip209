@@ -10,6 +10,11 @@ urlpatterns = patterns('',
         name='member-list'
     ),
     url(
+        regex=r'^pdf$',
+        view=views.member_list_pdf,
+        name='member-list-pdf'
+    ),
+    url(
         regex=r'^(?P<slug>[\w_-]+)/$',
         view=views.MemberDetailView.as_view(),
         name='member-detail'
