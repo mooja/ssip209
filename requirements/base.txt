@@ -40,4 +40,4 @@ envdir
 pytz
 
 # reportlab
-reportlab==3.1
+reportlab
