@@ -47,14 +47,16 @@ footer {
     margin-bottom: 0;
 }
 
-
-.home-news p {
-    text-align: justify;
-}
-
 .home-news img {
-    margin: 1em;
+    margin: 1rem;
 }
+
+.home-news-entry {
+    margin-top: 0;
+    margin-bottom: 5rem;
+}
+
+
 
 /************
  *  events  *
