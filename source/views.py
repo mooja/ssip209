@@ -1,10 +1,10 @@
 from django.views.generic import TemplateView
 from django.shortcuts import render_to_response
 
-from datetime import datetime, timedelta
 from pytz import timezone
+from datetime import datetime, timedelta
 
-from swingtime.models import Occurrence
+from membernews.models import MemberNewsEntry
 from news.models import NewsEntry
 from events.models import SSIPOccurrence
 
@@ -41,6 +41,7 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(TemplateView, self).get_context_data(**kwargs)
         context['news_entry_list'] = NewsEntry.objects.all()
-        context['sidebar_html'] = render_sidebar_html()
+        context['membernews_entry_list'] = MemberNewsEntry.objects.all()
+        context['upcoming_occurrence_list'] = upcoming_events_query()
 
         return context

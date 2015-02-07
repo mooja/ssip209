@@ -35,20 +35,20 @@ class Local(Common):
     # End mail settings
 
     # django-debug-toolbar
-    # MIDDLEWARE_CLASSES = Common.MIDDLEWARE_CLASSES + ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-    # INSTALLED_APPS += ('debug_toolbar',)
+    MIDDLEWARE_CLASSES = Common.MIDDLEWARE_CLASSES + ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+    INSTALLED_APPS += ('debug_toolbar',)
 
     INTERNAL_IPS = values.Value(['127.0.0.1'], environ_name="INTERNAL_IPS")
 
-    # DEBUG_TOOLBAR_CONFIG = {
-    #     'DISABLE_PANELS': [
-    #         'debug_toolbar.panels.redirects.RedirectsPanel',
-    #     ],
-    #     'SHOW_TEMPLATE_CONTEXT': True,
-    # }
+    DEBUG_TOOLBAR_CONFIG = {
+        'DISABLE_PANELS': [
+            'debug_toolbar.panels.redirects.RedirectsPanel',
+         ],
+         'SHOW_TEMPLATE_CONTEXT': True,
+    }
     # end django-debug-toolbar
 
-    DATABASES = values.DatabaseURLValue("sqlite:///database/db.sqlite3")
+    DATABASES = values.DatabaseURLValue("sqlite:///db.sqlite3")
     # Your local stuff: Below this line define 3rd party libary settings
     # trying out django extensions
     INSTALLED_APPS += ('django_extensions',)

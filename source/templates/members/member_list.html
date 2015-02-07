@@ -1,76 +1,65 @@
-{% extends "base.html" %}
+{% extends "base_sidebar.html" %}
 
 {% block title %}Members{% endblock %}
 
 {% load static %}
 
 {% block splash %}
-    <h1>SSIP 209 Members</h1>
+<h1>SSIP 209 Members</h1>
 {% endblock %}
 
-{% block content %}
-
-<div class="container">
-    <div class="row hidden-print">
-        <div class="col-md-8 data-filters">
-            <div class="well">
-                <form role="form">
-                    <div class="form-group">
-                        <input id="search-name" class="form-control" placeholder="Search By Name" type="text"/>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input id="show-details" role="checkbox" type="checkbox" checked="checked"> Show Details
-                        </label>
-                        <button type="button" class="btn btn-sm btn-default pull-right" onclick="location.href='{% url 'members:member-list-pdf'%}'">Printable Version</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="row" id="members">
+{% block sidebar %}
+    <ul>
         {% for member in member_list %}
-        <div class="col-md-8 col-sm-12 col-xs-12 member-data well clearfix">
-                <div class="basic-data">
-                    <img class="pull-left" src="http://placehold.it/128x128/">
-                    <h3 class="media-heading name" id="{{ member.id }}">
-                        {{ member.last_name }}, {{ member.first_name }}
-                    </h3>
-
-                    {% if member.address or member.town %}
-                    <p class="address">{{ member.address }}
-                    {% if member.town %}, {{ member.town }} NY {% endif %}
-                    </p>
-                    {% endif %}
-
-                    {% if member.homephone %}
-                    <p class="homephone">(Home) {{ member.homephone }}</p>
-                    {% endif %}
-
-                    {% if member.cellphone %}
-                    <p class="cellphone">(Cell) {{ member.cellphone }}</p>
-                    {% endif %}
-
-                    {% if member.email %}
-                    <p class="email"><a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
-                    {% endif %}
-                </div>
-                <div class="detail-data">
-
-                    {% if member.hobbies %}
-                    <p class="hobbies"><strong>My Hobbies</strong>: {{ member.hobbies }}</p>
-                    {% endif %}
-
-                    {% if member.canhelp %}
-                    <p class="canhelp"><strong>I can help with</strong>: {{ member.canhelp }}</p>
-                    {% endif %}
-
-                    {% if member.needhelp %}
-                    <p class="needhelp"><strong>I could use help with</strong>: {{ member.needhelp }}</p>
-                    {% endif %}
-                </div>
-            </div>
+        <li><a href="#{{ member.id }}">{{ member.last_name }}, {{ member.first_name }}</a></li>
         {% endfor %}
-    </div>
+    </ul>
+{% endblock sidebar %}
+
+{% block content %}
+<form role="form">
+        <hr>
+        <button type="button" class="btn btn-lg btn-default" onclick="location.href='{% url 'members:member-list-pdf'%}'">Printable Version</button>
+        <hr>
+</form>
+{% for member in member_list %}
+<div class="basic-data">
+    <h3 class="media-heading name" id="{{ member.id }}">
+        {{ member.last_name }}, {{ member.first_name }}
+    </h3>
+
+    {% if member.address or member.town %}
+    <p class="address">{{ member.address }}
+    {% if member.town %}, {{ member.town }} NY {% endif %}
+    </p>
+    {% endif %}
+
+    {% if member.homephone %}
+    <p class="homephone">(Home) {{ member.homephone }}</p>
+    {% endif %}
+
+    {% if member.cellphone %}
+    <p class="cellphone">(Cell) {{ member.cellphone }}</p>
+    {% endif %}
+
+    {% if member.email %}
+    <p class="email"><a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
+    {% endif %}
 </div>
+<div class="detail-data">
+
+    {% if member.hobbies %}
+    <p class="hobbies"><strong>My Hobbies</strong>: {{ member.hobbies }}</p>
+    {% endif %}
+
+    {% if member.canhelp %}
+    <p class="canhelp"><strong>I can help with</strong>: {{ member.canhelp }}</p>
+    {% endif %}
+
+    {% if member.needhelp %}
+    <p class="needhelp"><strong>I could use help with</strong>: {{ member.needhelp }}</p>
+    {% endif %}
+</div>
+<hr>
+{% endfor %}
 {% endblock content %}

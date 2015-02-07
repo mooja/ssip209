@@ -4,121 +4,91 @@
 <meta charset="utf-8">
 <title>{% block title %}Settled and Serving in Place{% endblock title %}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+{% block meta %}
+<meta name="description" content="SSIP 209 - Settled and Serving in Place Information Website."> 
+<meta name="keywords" content="ssip 209,ssip,settled and serving in place,marbletown,kingston,stoneridge,neighbors,neighborhood,settled and serving,community"> 
+<meta name="author" content="SSIP 209">
+{% endblock %}
 
 {% block css %}
-
-<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-<link href="{% static 'css/project.css' %}" rel="stylesheet">
-
+<link href="{% static 'css/styles.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block extra_css %}
 {% endblock %}
 
-{% block angular %}
-{% endblock %}
-
 </head>
 <body>
-{% block nav %}
-<div class="navbar navbar-default navbar-fixed-top">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-tree-deciduous"></span> SSIP 209</a>
-    </div>
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
-        <ul class="nav navbar-nav">
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'pages:page-detail' "about" %}">About SSIP</a></li>
-            <li><a href="{% url 'members:member-list' %}">Members</a></li>
-            <li><a href="{% url 'pages:page-detail' "services" %}">Service Providers</a></li>
-            <li><a href="{% url 'pages:page-detail' "newsletter" %}">Newsletter</a></li>
-        </ul>
-        {% if request.user.is_authenticated %}
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="/admin/">Admin</a></li>
-                <li><a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
-                <li><a href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
-            </ul>
-            </li>
-        </ul>
-        {% endif %}
-    </div>
-</div>
-{% endblock %}
-
-<div class="splash">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10">
-                {% block splash %}
-                    <h1>SSIP 209</h1>
-                    <p class="lead"> Settled and Serving in Place </p>
-                {% endblock %}
+    <header class="main-header">
+      <div class="container-fluid">
+        <div class="row main-nav">
+          <div class="col-sm-12">
+            <div class="container">
+              <div class="logo">
+                  <img src="{% static 'images/ssiplogo-small-2.png' %}" alt="SSIP 209 Logo">
+              </div>
+              {% block nav %}
+              <nav>
+                  <ul>
+                      <li><a href="{% url 'home' %}">Home</a></li>
+                      <li><a href="{% url 'pages:page-detail' "about" %}">About SSIP</a></li>
+                      <li><a href="{% url 'members:member-list' %}">Members</a></li>
+                      <li><a href="{% url 'pages:page-detail' "services" %}">Service Providers</a></li>
+                      <li><a href="{% url 'pages:page-detail' "newsletter" %}">Newsletter</a></li>
+                  </ul>
+              </nav>
+              {% endblock nav %}
             </div>
+          </div>
         </div>
-    </div>
-</div><!-- /container -->
+        <div class="row main-title">
+          <div class="col-sm-12">
+            <div class="container">
+              <div class="page-title">
+                  <h1> {% block splash %} {% endblock splash %}  </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
 
-{% block msg %}
-<div class="container">
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}warning{% endif %}">{{ message }}</div>
-    {% endfor %}
-    {% endif %}
-</div><!-- /container -->
-{% endblock %}
-
-{% block content_wrapper %}
+    {% block msg %}
     <div class="container">
-        {% block content %}
-            <p>No Data</p>
-        {% endblock content %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}warning{% endif %}">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
     </div><!-- /container -->
-{% endblock content_wrapper %}
+    {% endblock %}
 
-{% block modal %}{% endblock modal %}
+    {% block content_wrapper %}
+    <div class="container">
+      <section class="main-content">
+        {% block content %}
+        <h3> section heading </h3>
+        <p>Consectetur perferendis magni voluptatem eaque nihil. Explicabo quidem pariatur assumenda iusto facilis vitae? Deserunt blanditiis ullam vitae obcaecati explicabo repellendus laboriosam! Recusandae id reprehenderit quibusdam accusantium iure quos facere vel incidunt, vero suscipit ipsa. Placeat quibusdam repellat illum qui a perferendis. Saepe praesentium ex optio aperiam dolorum quo. Incidunt veritatis.</p>
+        <p>Sit amet modi modi repellat voluptatem doloremque illo. Doloremque molestiae possimus sit fuga voluptatum consequuntur nisi qui mollitia porro! Voluptatibus dicta velit consequatur consectetur quos voluptatem, harum. Ipsa consequuntur error labore facilis reiciendis culpa qui? Aspernatur vitae molestiae quibusdam quaerat voluptate? Rerum quasi sit similique accusamus deserunt sapiente fuga id perspiciatis? Nemo cupiditate voluptatibus at illo autem! Expedita similique ullam nobis dignissimos voluptatem, repellat exercitationem? Iste ex officia eum nesciunt autem ipsum perferendis. Modi esse.</p>
+        <p>Sit eum repudiandae saepe suscipit quibusdam. Beatae inventore odio placeat veniam fugit amet! Consequuntur labore rerum perferendis eaque cupiditate ullam reprehenderit ad? Quae quaerat accusamus necessitatibus fugit doloremque, accusantium facere!</p>
+      </section>
+        {% endblock content %}
+    </div>
+    {% endblock content_wrapper %}
 
+    {% block footer %}
+    <footer>
+      <img src="images/ssiplogo-small-2.png" alt="SSIP 209 Logo">
+      <p>© SSIP 209 - Settled and Serving in Place, 2011-2015. </p>
+      <p>Design by Max Shkurygin</p>
+    </footer>
 
-{% block javascript %}
+    {% endblock %}
+    {% block javascript %}
+    {% endblock javascript %}
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="{% static 'js/project.js' %}"></script>
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-55818610-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-
-{% endblock javascript %}
-
-
-{% block javascript_extra %}
-    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
-{% endblock javascript_extra %}
-
-{% include "footer.html" %}
-
-</body>
+    {% block javascript_extra %}
+    {% endblock javascript_extra %}
+  </body>
 </html>
+

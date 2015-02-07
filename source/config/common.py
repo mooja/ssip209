@@ -55,6 +55,7 @@ class Common(Configuration):
         'users',  # custom users app
         # Your stuff: custom apps go here
         'news',
+        'membernews',
         'members',
         'events',  # events calendar
         'pages',  # custom rst / markdown pages
