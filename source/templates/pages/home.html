@@ -68,7 +68,7 @@
                         {% for news_entry in membernews_entry_list %}
                         <div class="news-entry">
                             <article class="panel-body">
-                                <h3>{{ news_entry.title }} <span class="text-muted">by {{ news_entry.author }}</h3> 
+                                <h3>{{ news_entry.title|safe }} <span class="text-muted">by {{ news_entry.author }}</h3> 
                                 <p class="post-date"><span class="glyphicon glyphicon-calendar"></span> {{ news_entry.pub_date|date:"F jS, Y" }}</p>
                                 {{ news_entry.text|safe }}
                             </article>
