@@ -16,10 +16,6 @@
       </section>
 
       <aside class="main-aside">
-        {% block sidebar_top %}
-        {% endblock sidebar_top %}
-
-
         <h2>Contents</h2>
         <!-- <h3>Page Title</h3> -->
         {% block sidebar %}
@@ -30,9 +26,6 @@
         </ul>
         {{ sidebar_html|safe }}
         {% endblock sidebar %}
-
-        {% block sidebar_bottom %}
-        {% endblock sidebar_bottom %}
       </aside>
     </div>
 
