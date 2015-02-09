@@ -5,7 +5,7 @@
 {% load static %}
 
 {% block splash %}
-<h1>SSIP 209 Members</h1>
+    SSIP 209 Members
 {% endblock %}
 
 {% block sidebar %}
@@ -23,7 +23,6 @@
         <hr>
 </form>
 {% for member in member_list %}
-<div class="basic-data">
     <h3 class="media-heading name" id="{{ member.id }}">
         {{ member.last_name }}, {{ member.first_name }}
     </h3>
@@ -45,8 +44,6 @@
     {% if member.email %}
     <p class="email"><a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
     {% endif %}
-</div>
-<div class="detail-data">
 
     {% if member.hobbies %}
     <p class="hobbies"><strong>My Hobbies</strong>: {{ member.hobbies }}</p>
@@ -59,7 +56,6 @@
     {% if member.needhelp %}
     <p class="needhelp"><strong>I could use help with</strong>: {{ member.needhelp }}</p>
     {% endif %}
-</div>
 <hr>
 {% endfor %}
 {% endblock content %}

@@ -54,13 +54,17 @@
     </header>
 
     {% block msg %}
-    <div class="container">
         {% if messages %}
-        {% for message in messages %}
-        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}warning{% endif %}">{{ message }}</div>
-        {% endfor %}
+        <div class="container">
+            <div class="col-md-6 col-md-offset-3">
+                <hr>
+                {% for message in messages %}
+                    <div class="alert alert-warning">{{ message }}</div>
+                {% endfor %}
+                <hr>
+            </div>
+        </div><!-- /container -->
         {% endif %}
-    </div><!-- /container -->
     {% endblock %}
 
     {% block content_wrapper %}
