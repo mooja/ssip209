@@ -41,3 +41,4 @@ pytz
 
 # reportlab
 reportlab
+django-summernote==0.6.3

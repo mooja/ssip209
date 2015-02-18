@@ -40,15 +40,14 @@ urlpatterns = patterns('',
     url(r'^users/', include("users.urls", namespace="users")),
     url(r'^accounts/', include('allauth.urls')),
 
-    # Uncomment the next line to enable avatars
-    url(r'^avatar/', include('avatar.urls')),
-
-    # Uncomment the next line to enable avatars
+    # WYSIWYG Editor
+    (r'^summernote/', include('django_summernote.urls')),
 
     # Your stuff: custom urls go here
     # News
     url(r'^news/', include("news.urls", namespace="news")),
     url(r'^members/', include("members.urls", namespace="members")),
     url(r'^events/', include("events.urls", namespace="events")),
+    url(r'^cal/', include("swingtime.urls")),
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

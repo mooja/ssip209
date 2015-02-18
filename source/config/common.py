@@ -30,7 +30,7 @@ class Common(Configuration):
         'django.contrib.sites',
         'django.contrib.messages',
         'django.contrib.staticfiles',
-        'django.contrib.flatpages',
+        # 'django.contrib.flatpages',
 
         # sitemaps
         'django.contrib.sitemaps',
@@ -41,6 +41,7 @@ class Common(Configuration):
         # Admin
         'django.contrib.admin',
     )
+
     THIRD_PARTY_APPS = (
         'crispy_forms',  # Form layouts
         'avatar',  # for user avatars
@@ -48,6 +49,7 @@ class Common(Configuration):
         'allauth.account',  # registration
         'allauth.socialaccount',  # registration
         'swingtime',  # events calendar
+        'django_summernote',  # wysiwyg editor
     )
 
     # Apps specific for this project go here.
