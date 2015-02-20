@@ -49,6 +49,9 @@
                                     <div class="date">
                                         {{ oc.start_time|date:"d" }}
                                     </div>
+                                    <div class="weekday">
+                                        {{ oc.start_time|date:"l" }}
+                                    </div>
                                 </div>
                                 <div class="event-description">
                                     <h3 class="event-title">{{ oc.event.title }}</h3>
